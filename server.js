@@ -39,7 +39,7 @@ passport.use(new TwitterStrategy({
 		User.create({
 			twitterId: profile.id
 		}, function (err, user) {
-			// console.log(err, user);
+
 			return cb(null, user);
 		});
 	}
