@@ -1,6 +1,6 @@
 {
   "name": "major-golf",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Fantasy Golf tracker",
   "main": "server.js",
   "dependencies": {
@@ -31,7 +31,11 @@
     "type": "git",
     "url": "git+https://github.com/jaredmpeterson/major-golf.git"
   },
-  "author": "Jared M. Peterson",
+  "author": {
+    "name": "Jared M. Peterson",
+    "email": "jared@peteyinc.com",
+    "url": "http://www.jaredmpeterson.com/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jaredmpeterson/major-golf/issues"
