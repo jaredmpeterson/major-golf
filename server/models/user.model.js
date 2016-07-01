@@ -7,7 +7,10 @@ var userSchema = new Schema({
     name: String,
     screen_name: String,
     description: String,
-    url: String
+    url: String,
+    username: String,
+    provider: String
+    // twitter: Mixed
 });
 
 module.exports = mongoose.model("User", userSchema);
