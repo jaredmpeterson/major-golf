@@ -6,5 +6,15 @@ angular.module('majorGolf', ['ui.router']).config(function($stateProvider, $urlR
   }).state('home', {
     url:'/home',
     templateUrl: 'views/home.html'
-  })
+  }).state('golfers', {
+    url: '/golfers',
+    templateUrl: './views/golfers.html',
+    controller: 'golferCtrl',
+    resolve: {
+      golfers: function(golferService) {
+        return golferService.getGolfers();
+      }
+    }
+  }
+  )
 });

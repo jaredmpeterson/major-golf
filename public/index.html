@@ -2,6 +2,7 @@
 <html data-ng-app="majorGolf">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./dist/style.css" media="screen" title="no title" charset="utf-8">
     <title>Major Golf</title>
   </head>
   <body>
@@ -10,6 +11,7 @@
       <nav>
         <ul>
           <li><a ui-sref="login">Login</a></li>
+          <li><a ui-sref="home">Home</a></li>
         </ul>
       </nav>
     </header>
@@ -17,5 +19,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
     <script src="./js/majorgolf.app.js"></script>
+    <!-- Controllers -->
+    <script src="./js/main.ctrl.js" charset="utf-8"></script>
+    <script src="./js/golfer.ctrl.js" charset="utf-8"></script>
+
+    <!-- Services -->
+    <script src="./js/golfer.service.js" charset="utf-8"></script>
+
   </body>
 </html>

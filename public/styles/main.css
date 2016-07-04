@@ -1,0 +1,34 @@
+
+header {
+  height: 100px;
+  background-color: green;
+  display: flex;
+  width: 100%;
+  align-content: space-between;
+  align-items: center;
+}
+
+nav {
+  width: 40%;
+  display: flex;
+  align-content: space-between;
+  justify-content: space-between;
+
+}
+
+nav ul {
+  background-color: white;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+nav ul li {
+  background-color: gold;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  /*align-items: center;*/
+}

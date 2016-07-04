@@ -8,64 +8,64 @@ var zebras = require('./zebras.js');
 var mongoose = require('mongoose');
 
 //Controllers
-// var userCtrl = require('./server/ctrl/user.ctrl.js');
+var userCtrl = require('./server/ctrl/user.ctrl.js');
+var golferCtrl = require('./server/ctrl/golfer.ctrl.js');
+// Models
+var User = require('./server/models/user.model.js');
+var Golfer = require('./server/models/golfer.model.js');
 
 var port = 3000;
 var app = express();
 
-
-var User = require('./server/models/user.model.js');
-
 app.use(bodyParser.json());
 app.use(session({
-	secret: zebras.secret
+	secret: zebras.secret,
+	resave: true,
+	saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/majorgolf', function(err, res) {
+mongoose.connect('mongodb://localhost/majorgolf', function (err, res) {
 	if (err) console.log('Error connecting to database')
-	else console.log('Major Golf reporting for duty!')
+	else console.log('Major Golf '+ port +' reporting for duty!')
 });
-
 // mongoose.connection.once('open', function () {
 // 	console.log('Major Golf reporting for duty!');
 // });
 
 passport.use(new TwitterStrategy({
-		consumerKey: zebras.consumerKey,
-		consumerSecret: zebras.consumerSecret,
-		callbackURL: "http://127.0.0.1:" + port + "/auth/twitter/callback"
-	}, function (token, tokenSecret, profile, done) {
-		User.findOne({
-			'twitter.id': profile.id
-		}, function (err, user) {
-			if (err) {
-				return done(err)
-			}
-			if (!user) {
-				user = new User({
-					name: profile.displayName,
-					username: profile.username,
-					provider: 'twitter',
-					twitter: profile._json
-				})
-				user.save(function (err) {
-					if (err) console.log(err)
-					return done(err, user)
-				})
-			} else {
+	consumerKey: zebras.consumerKey,
+	consumerSecret: zebras.consumerSecret,
+	callbackURL: "http://127.0.0.1:" + port + "/auth/twitter/callback"
+}, function (token, tokenSecret, profile, done) {
+	User.findOne({
+		'twitter.id': profile.id
+	}, function (err, user) {
+		if (err) {
+			return done(err)
+		}
+		if (!user) {
+			user = new User({
+				name: profile.displayName,
+				username: profile.username,
+				provider: 'twitter',
+				twitter: profile._json
+			})
+			user.save(function (err) {
+				if (err) console.log(err)
 				return done(err, user)
-			}
-		})
-	}
-))
+			})
+		} else {
+			return done(err, user)
+		}
+	})
+}))
 
 
 app.get('/auth/twitter', passport.authenticate('twitter'));
-
 app.get('/auth/twitter/callback', passport.authenticate('twitter', {
 		successRedirect: '/#/home',
 		failureRedirect: '/',
@@ -83,7 +83,16 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (obj, done) {
 	done(null, obj);
 });
+// Golfer Control
+app.get('/golfers', golferCtrl.index);
+app.get('/golfers/:id', golferCtrl.show);
+app.put('/golfers/:id', golferCtrl.update);
+app.post('/golfers', golferCtrl.create);
+app.delete('/golfers/:id', golferCtrl.delete);
+
+// User Control
+
 
 app.listen(port, function () {
-	console.log("Fore " + port);
+	// console.log("Fore " + port);
 });

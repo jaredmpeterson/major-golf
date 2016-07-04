@@ -1,0 +1,11 @@
+<section>
+    <h2>Golfers</h2>
+    <div ng-repeat="golfer in golfers | orderBy: 'golfer.Rank'">
+        <p>
+            <strong>{{ golfer.Rank }}</strong>
+            {{ golfer.First }}
+            {{ golfer.Last }}
+            <em>{{ golfer.Country}}</em>
+        </p>
+    </div>
+</section>
