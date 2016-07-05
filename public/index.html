@@ -2,18 +2,26 @@
 <html data-ng-app="majorGolf">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./dist/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./dist/normalize.css"charset="utf-8">
+    <link rel="stylesheet" href="./dist/style.css" charset="utf-8">
     <title>Major Golf</title>
   </head>
   <body>
     <header>
-      <h2>Major Golf</h2>
+      <div class="logo">
+        <h2>Major Golf</h2>
+      </div>
       <nav>
         <ul>
           <li><a ui-sref="login">Login</a></li>
           <li><a ui-sref="home">Home</a></li>
         </ul>
       </nav>
+      <div class="rightnav">
+        <p>
+          JMP
+        </p>
+      </div>
     </header>
     <ui-view></ui-view>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>

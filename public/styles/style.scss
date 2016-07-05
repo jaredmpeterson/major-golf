@@ -1,10 +1,120 @@
 @import url(https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Open+Sans:400,700);
 $ML: 'Miriam Libre', sans-serif;
 $OS: 'Open Sans', sans-serif;
+
 $GREEN: #076652;
 $MG: #006b54;
+$MR: #EC222E;
+
+// AUGUSTA
+$MY: #FFF000;
+$UNDER: #BF0000;
+$OVER: #14543E;
+$GRAY: #999999;
+
+// MATERIAL
+$dark:    #388E3C;
+$main:    #4CAF50;
+$light:   #C8E6C9;
+$icons:   #FFFFFF;
+$accent:  #FFEB3B;
+$text:    #212121;
+$text2:   #727272;
+$divider: #B6B6B6;
+
+
+// Header & Nav
+
+header {
+  background-color: $dark;
+  height: 75px;
+  width: 100% !important;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+
+  .logo {
+    // flex-grow: 1; //header child
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    h2 {
+      color: $icons;
+    }
+  }
+
+  nav {
+    // width: 50%;
+    height: auto;
+    // flex-grow: 2; //header child
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+
+    ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      list-style: none;
+
+      a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: $icons;
+      }
+
+      a:hover {
+        background: $main;
+        border-bottom: 1px solid $icons;
+      }
+    }
+  }
+
+  .rightnav {
+    // flex-grow: 1; //header child
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+// Body
 
 h2 {
   font-family: $ML;
   color: $GREEN;
+}
+
+@media all and (max-width: 800px) {
+  header {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 600px) {
+  header {
+    // -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  ul a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+
+  ul li:last-of-type a {
+    border-bottom: none;
+  }
 }

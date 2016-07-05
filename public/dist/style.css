@@ -1,4 +1,62 @@
 @import url(https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Open+Sans:400,700);
+header {
+  background-color: #388E3C;
+  height: 75px;
+  width: 100% !important;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch; }
+  header .logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center; }
+    header .logo h2 {
+      color: #FFFFFF; }
+  header nav {
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center; }
+    header nav ul {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      list-style: none; }
+      header nav ul a {
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        color: #FFFFFF; }
+      header nav ul a:hover {
+        background: #4CAF50;
+        border-bottom: 1px solid #FFFFFF; }
+  header .rightnav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center; }
+
 h2 {
   font-family: "Miriam Libre", sans-serif;
   color: #076652; }
+
+@media all and (max-width: 800px) {
+  header {
+    justify-content: space-around; } }
+
+@media all and (max-width: 600px) {
+  header {
+    flex-flow: column wrap;
+    padding: 0; }
+  ul a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  ul li:last-of-type a {
+    border-bottom: none; } }
