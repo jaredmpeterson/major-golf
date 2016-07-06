@@ -22,11 +22,7 @@ $text:    #212121;
 $text2:   #727272;
 $divider: #B6B6B6;
 
-html {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
+
 // Header & Nav
 
 header {
@@ -35,10 +31,10 @@ header {
   z-index: 1;
   height: 50px;
   width: 100% !important;
-  margin: 0;
+  margin: auto;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: stretch;
   // box-shadow: 0 3px 5px rgba(182, 182, 182, .7);
 
@@ -128,11 +124,18 @@ body {
   align-content: space-around;
   align-items: center;
   margin: auto;
+
+  html {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+  }
 }
 
 .heroimage {
   width: 100%;
-  height: 30vh;
+  height: 35vh;
+  min-height: 200px;
   margin-top: 50px;
   background-image: url(http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg);
   background-position: bottom;
@@ -140,7 +143,7 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: flex-end;
 
   // background-repeat: no-repeat;
 }
@@ -148,12 +151,14 @@ body {
 .title {
   // border: 2px solid orange;
   color: $icons;
+  font-family: $OS;
   font-weight: 300;
-  font-size: 8vmax;
+  font-size: 4vmax;
 }
 
 .golfers {
   width: 80%;
+  height: auto;
   margin: auto;
   display: flex;
   flex-flow: row wrap;
@@ -163,16 +168,17 @@ body {
 
 .golfer {
   height: 50px;
-  width: 24%;
+  width: 30%;
   min-width: 200px;
   // border: 1px solid $divider;
   padding: 5px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   text-align: left;
   color: $text;
   font-family: $OS;
+  background-color: $light;
 
   .rank {
     height: 100%;
@@ -192,12 +198,16 @@ body {
 }
 
 #mgsplash {
-  margin: 20px;
+  margin-top: 50px;
 }
 
 @media all and (max-width: 800px) {
   header {
     justify-content: space-around;
+  }
+
+  .golfers {
+    width: 100%;
   }
 }
 
