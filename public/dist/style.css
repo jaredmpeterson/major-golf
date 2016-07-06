@@ -1,7 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Open+Sans:300,400,700);
+html {
+  overflow: hidden;
+  width: 100%;
+  height: 100%; }
+
 header {
-  background-color: #388E3C;
-  height: 75px;
+  background-color: black;
+  position: fixed;
+  z-index: 1;
+  height: 50px;
   width: 100% !important;
   margin: 0;
   display: flex;
@@ -14,7 +21,8 @@ header {
     align-content: center;
     align-items: center; }
     header .logo h2 {
-      color: #FFFFFF; }
+      color: #FFFFFF;
+      font-weight: 400; }
   header nav {
     height: auto;
     display: flex;
@@ -26,15 +34,16 @@ header {
       display: flex;
       flex-flow: row wrap;
       justify-content: center;
-      list-style: none; }
+      list-style: none;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300; }
       header nav ul a {
         text-decoration: none;
         display: block;
         padding: 1em;
         color: #FFFFFF; }
       header nav ul a:hover {
-        background: #4CAF50;
-        border-bottom: 1px solid #FFFFFF; }
+        color: #FFF000; }
   header .rightnav {
     display: flex;
     justify-content: center;
@@ -43,7 +52,77 @@ header {
 
 h2 {
   font-family: "Miriam Libre", sans-serif;
-  color: #076652; }
+  color: #FFFFFF; }
+
+.wrapper {
+  width: 100% !important;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.login {
+  flex: 1 100%;
+  height: 100vh;
+  background-image: url(http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+  margin: auto; }
+
+.heroimage {
+  width: 100%;
+  height: 30vh;
+  margin-top: 50px;
+  background-image: url(http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg);
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.title {
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 8vmax; }
+
+.golfers {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: space-around; }
+
+.golfer {
+  height: 50px;
+  width: 24%;
+  min-width: 200px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  color: #212121;
+  font-family: "Open Sans", sans-serif; }
+  .golfer .rank {
+    height: 100%;
+    margin: 0 25px 0 10px;
+    color: #388E3C;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700; }
+  .golfer #country {
+    color: #727272; }
+
+#mgsplash {
+  margin: 20px; }
 
 @media all and (max-width: 800px) {
   header {

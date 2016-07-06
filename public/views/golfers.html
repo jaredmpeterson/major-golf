@@ -1,11 +1,16 @@
-<section>
-    <h2>Golfers</h2>
-    <div ng-repeat="golfer in golfers | orderBy: 'golfer.Rank'">
+<section class="wrapper">
+  <div class="heroimage">
+    <h2 class="title">{{ title }}</h2>
+  </div>
+  <div class="golfers">
+    <div class="golfer" ng-repeat="golfer in golfers | orderBy: 'golfer.Rank'">
+        <div class="rank">
+          {{ golfer.Rank }}
+        </div>
         <p>
-            <strong>{{ golfer.Rank }}</strong>
-            {{ golfer.First }}
-            {{ golfer.Last }}
-            <em>{{ golfer.Country}}</em>
+            {{ golfer.First }} {{ golfer.Last }}<br>
+            <em id="country">{{ golfer.Country}}</em>
         </p>
     </div>
+  </div>
 </section>
