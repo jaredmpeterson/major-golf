@@ -1,65 +1,59 @@
-var Golfers = require('../models/golfer.model');
+var Golfer = require('../models/golfer.model');
 var ObjectId = require('mongoose').Schema.ObjectId;
-
 
 module.exports = {
 	create: function (req, res, next) {
-		Golfers.create(req.body, function (err, r) {
-			if (err) {
-				console.log(err)
-				return res.status(500).send();
-			}
-			res.status(200).json(r);
+		console.log('create', req.body);
+		Golfer.create(req.body, function (err, golfer) {
+			if (err) return res.status(500).send(err);
+			res.status(200).json(golfer);
 		})
 	},
 
-	index: function (req, res, next) {
-		Golfers.find(function (err, r) {
-			if (err) {
-				console.log(err)
-				res.status(500).send();
-			}
-			res.status(200).json(r);
+	read: function (req, res, next) {
+		console.log('index', req.body);
+		Golfer.find(function (err, golfer) {
+			if (err) res.status(500).send(err);
+			res.status(200).json(golfer);
 		})
 	},
 
 	show: function (req, res, next) {
-		Golfers.findOne({
+		Golfer.findOne({
 			_id: req.params.id
 		}, function (err, r) {
 			if (err) {
-				console.log(err)
-				return res.status(500).send();
+				return res.status(500).send(err);
 			}
 			return res.status(200).json(r);
 		})
 	},
 
 	update: function (req, res, next) {
+		console.log('update', req.body);
 		delete(req.body._id);
-		Golfers.update({
+		Golfer.update({
 			_id: req.params.id
 		}, {
 			$set: req.body
-		}, function (err, r) {
+		}, function (err, golfer) {
 			if (err) {
-				console.log(err)
-				return res.status(500).send();
+				return res.status(500).send(err);
 			} else {
-				return res.status(200).json(r)
+				return res.status(200).json(golfer)
 			}
 		})
 	},
 
 	delete: function (req, res, next) {
-		Golfers.remove({
+		console.log('delete', req.body);
+		Golfer.remove({
 			_id: req.params.id
-		}, function (err, r) {
+		}, function (err, golfer) {
 			if (err) {
-				console.log(err)
-				return res.status(500).send();
+				return res.status(500).send(err);
 			}
-			return res.status(200).json(r);
+				return res.status(200).json(golfer);
 		})
 	}
 }

@@ -1,42 +1,42 @@
-var User = require('./../models/user.model.js');
+var Game = require('./../models/game.model.js');
 var ObjectId = require('mongoose').Schema.ObjectId;
 
 module.exports = {
   create: function(req, res, next) {
     console.log('create', req.body);
 
-    // var user = new User(req.body) {
-    //   user.save(function(err, user) {
+    // var game = new Game(req.body) {
+    //   game.save(function(err, game) {
     //     if (err) res.status(500).send(err);
-    //     res.status(200).send(user);
+    //     res.status(200).send(game);
     //   })
     // }
   },
 
   read: function(req, res, next) {
-    User.find(req.query, function(err, user) {
+    Game.find(req.query, function(err, game) {
       if (err) res.status(500).send(err);
-      res.status(200).send(user);
+      res.status(200).send(game);
     })
   },
 
   update: function(req, res, next) {
-    User.findByIdAndUpdate(req.params.id, req.body, function(err, user) {
+    Game.findByIdAndUpdate(req.params.id, req.body, function(err, game) {
       if (err) res.status(500).send(err);
-      res.status(200).send(user);
+      res.status(200).send(game);
     })
   },
 
   delete: function(req, res, next) {
-    User.findByIdAndRemove(req.params.id, function(err, user) {
+    Game.findByIdAndRemove(req.params.id, function(err, game) {
       if (err) res.status(500).send(err);
-      res.status(200).send(user);
+      res.status(200).send(game);
     })
   },
 
   show: function(req, res, next) {
-    User.findOne({
-      username: req.params.id
+    Game.findOne({
+      gamename: req.params.id
     }, function(e, r) {
       if (e) {
         return res.status(500).send(e);
