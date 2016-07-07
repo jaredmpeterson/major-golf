@@ -1,7 +1,7 @@
 angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 	$stateProvider.state('login', {
-		url: '/login',
+		url: '/',
 		templateUrl: 'views/login.html'
 	}).state('home', {
 		url: '/home',
@@ -35,4 +35,11 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 	// 		}
 	// 	}
 	// })
-});
+}).directive("jared", function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        // scope: {},
+        templateUrl: 'views/nav.html',
+				controller: 'mainCtrl'
+    }});

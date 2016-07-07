@@ -12,6 +12,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
+
 //Passport
 app.use(session({
 	secret: zebras.secret,
@@ -45,6 +46,7 @@ mongoose.connect(mongoURI, function (err, res) {
 // 	console.log('Major Golf reporting for duty!');
 // });
 
+
 //Middleware
 
 passport.use(new TwitterStrategy({
@@ -53,7 +55,7 @@ passport.use(new TwitterStrategy({
 	callbackURL: "http://127.0.0.1:" + port + "/auth/twitter/callback"
 }, function (token, tokenSecret, profile, done) {
 		User.findOne({
-			'profile': profile.id
+			profile: profile.id
 		}, function (err, user) {
 			if (err) return done(err);
 			if (!user) {
@@ -73,14 +75,18 @@ passport.use(new TwitterStrategy({
 }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', {
-		// successRedirect: '/#/users/',
-		failureRedirect: '/#/login',
-		failureFlash: true
-	}),
-	function (req, res, next) {
-		res.redirect('/#/home');
-	}
+		successRedirect: '/#/home',
+		failureRedirect: '/#/'
+	})
+	// ,
+	// function (req, res, next) {
+	// 	res.redirect('/#/home');
+	// }
 );
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/#/');
+});
 
 passport.serializeUser(function (user, done) {
 	done(null, user.id);

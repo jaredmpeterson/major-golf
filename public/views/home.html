@@ -1,15 +1,13 @@
-<section class="wrapper">
-  <div class="heroimage">
-    <h2 class="title">{{ title }}</h2>
-  </div>
-  <div class="profile">
+<section class="profile">
+  <!-- <div class="heroimage">
+    <h2 class="title">{{ user.username }}</h2>
+  </div> -->
+  <div class="">
     <h3>My Games</h3>
     <!-- <div class="games" ng-repeat="game in games | filterBy: ">
-
     </div> -->
     <h3>New Game</h3>
-
-    {{ user.username }}
-    <button type="button" name="button"><a href>+</a></button>
+    <button type="button" name="button"><a href>+</a></button><br>
+    <img ng-src="{{ profile.photos[0].value }}" alt="" />
   </div>
 </section>

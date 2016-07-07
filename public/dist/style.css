@@ -44,6 +44,11 @@ header {
     justify-content: center;
     align-content: center;
     align-items: center; }
+  header .avatar {
+    height: 50px;
+    width: 50px;
+    image-resolution: from-image;
+    box-sizing: border-box; }
 
 h2 {
   font-family: "Miriam Libre", sans-serif;
@@ -51,14 +56,10 @@ h2 {
 
 .wrapper {
   width: 100% !important;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center; }
+  height: 100vh;
+  margin-top: 50px; }
 
 .login {
-  flex: 1 100%;
   height: 100vh;
   background-image: url(http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg);
   display: flex;
@@ -66,7 +67,7 @@ h2 {
   justify-content: space-around;
   align-content: space-around;
   align-items: center;
-  margin: auto; }
+  overflow: hidden; }
   .login html {
     overflow: hidden;
     width: 100%;
@@ -76,7 +77,6 @@ h2 {
   width: 100%;
   height: 35vh;
   min-height: 200px;
-  margin-top: 50px;
   background-image: url(http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg);
   background-position: bottom;
   background-size: cover;
@@ -90,6 +90,14 @@ h2 {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   font-size: 4vmax; }
+
+.profile {
+  width: 80%;
+  height: 100vh;
+  margin-top: 50px;
+  background-color: #C8E6C9;
+  margin: auto;
+  overflow: hidden; }
 
 .golfers {
   width: 80%;

@@ -1,8 +1,14 @@
 angular.module('majorGolf')
-.controller('mainCtrl', function($scope, userService) {
+.controller('mainCtrl', function($scope, userService, $q) {
   $scope.home = true;
-  userService.getUser()
-    .then(function(res) {
-      $scope.user = res;
+  $scope.currentUser = function() {
+    var user = userService.getMe();
+    user.then(function(me) {
+      $scope.user = me;
+      $scope.profile = me.profile;
     });
+  }
+
+  $scope.currentUser();
+
 })

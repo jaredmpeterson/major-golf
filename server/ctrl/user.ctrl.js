@@ -45,10 +45,15 @@ module.exports = {
   },
 
   me: function(req, res, next) {
-    var me = {
-      username: req.user.username
-    };
-    return  res.status(200).json(me);
+    if (req.user) {  var me = {
+        username: req.user.username,
+        profile: req.user.twitter
+      };
+      // console.log(me.profile);
+      return  res.status(200).json(me);
+    } else {
+      
+    }
   }
 
 
