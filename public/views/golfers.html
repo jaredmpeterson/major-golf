@@ -5,11 +5,11 @@
   <div class="golfers">
     <div class="golfer" ng-repeat="golfer in golfers | orderBy: 'golfer.Rank'">
         <div class="rank">
-          {{ golfer.Rank }}
+          {{ golfer.rank }}
         </div>
         <p>
-            {{ golfer.First }} {{ golfer.Last }}<br>
-            <em id="country">{{ golfer.Country}}</em>
+            {{ golfer.first }} {{ golfer.last }}<br>
+            <em id="country">{{ golfer.country}}</em>
         </p>
     </div>
   </div>

@@ -25,4 +25,14 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 			}
 		}
 	})
+  .state('user', {
+		url: '/users/:id',
+		templateUrl: 'views/profile.html',
+		controller: 'userCtrl',
+		resolve: {
+			users: function (userService) {
+				return userService.getUsers();
+			}
+		}
+	})
 });

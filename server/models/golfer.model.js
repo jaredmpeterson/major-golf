@@ -3,10 +3,12 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var golferSchema = new Schema({
-    First: String,
-    Last: String,
-    Country: String,
-    Rank: Number
+    first: String,
+    last: String,
+    country: String,
+    rank: Number,
+    avatar: String,
+    profile: String
 });
 
 module.exports = mongoose.model("Golfer", golferSchema);
