@@ -1,7 +1,7 @@
 //Dependencies
 var express = require('express');
-
-
+var passport = require('passport');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var TwitterStrategy = require('passport-twitter').Strategy;
 var zebras = require('./zebras.js');
@@ -13,8 +13,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 //Passport
-var passport = require('passport');
-var session = require('express-session');
 app.use(session({
 	secret: zebras.secret,
 	resave: true,
@@ -66,50 +64,50 @@ passport.use(new TwitterStrategy({
 				})
 				user.save(function (err) {
 					if (err) console.log(err)
-					return done(null, user)
+					return done(null, user);
 				})
 			} else {
-				// console.log(user);
-				return done(null, user)
+				return done(null, user);
 			}
 		})
 }));
 app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', {
-		successRedirect: '/#/home',
-		failureRedirect: '/',
+		// successRedirect: '/#/users/',
+		failureRedirect: '/#/login',
 		failureFlash: true
 	}),
 	function (req, res, next) {
 		res.redirect('/#/home');
-		console.log("hmm");
 	}
 );
 
 passport.serializeUser(function (user, done) {
 	done(null, user.id);
 });
-passport.deserializeUser(function (obj, done) {
-	done(null, obj);
+passport.deserializeUser(function (id, done) {
+	User.findById(id, function(err, user) {
+		done(null, user);
+	})
 });
 
 // Golfer Endpoints
-app.get('/golfers', golferCtrl.read);
-app.get('/golfers/:id', golferCtrl.show);
-app.put('/golfers/:id', golferCtrl.update);
-app.post('/golfers', golferCtrl.create);
-app.delete('/golfers/:id', golferCtrl.delete);
+app.get('/api/golfers', golferCtrl.read);
+app.get('/api/golfers/:id', golferCtrl.show);
+app.put('/api/golfers/:id', golferCtrl.update);
+app.post('/api/golfers', golferCtrl.create);
+app.delete('/api/golfers/:id', golferCtrl.delete);
 
 // User Endpoints
-app.get('/users', userCtrl.read);
-app.get('/users/:id', userCtrl.show);
+app.get('/api/users', userCtrl.read);
+app.get('/api/currentuser', userCtrl.me);
 
 // Game Endpoints
-app.get('/games', gameCtrl.read);
-app.get('/games/:id', gameCtrl.show);
-app.put('/games/:id', gameCtrl.update);
-app.post('/games', gameCtrl.create);
-app.delete('/games/:id', gameCtrl.delete);
+app.get('/api/games', gameCtrl.read);
+app.get('/api/games/:id', gameCtrl.show);
+app.put('/api/games/:id', gameCtrl.update);
+app.post('/api/games', gameCtrl.create);
+app.delete('/api/games/:id', gameCtrl.delete);
 
 
 //Listen

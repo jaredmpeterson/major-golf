@@ -4,11 +4,18 @@ angular.module('majorGolf')
 		this.getUsers = function () {
 			return $http({
 				method: 'GET',
-				url: '/users'
+				url: '/api/users'
 			}).then(function (response) {
-        // console.log(data);
-        // console.log(data.data);
         return response.data;
+			})
+		};
+
+		this.getUser = function () {
+			return $http({
+				method: 'GET',
+				url: '/api/currentuser'
+			}).then(function (response) {
+				return response.data;
 			})
 		};
 

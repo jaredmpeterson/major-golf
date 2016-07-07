@@ -4,7 +4,7 @@ angular.module('majorGolf')
 		this.getGolfers = function () {
 			return $http({
 				method: 'GET',
-				url: '/golfers'
+				url: '/api/golfers'
 			}).then(function (data) {
 				return data.data;
 			})
@@ -13,7 +13,7 @@ angular.module('majorGolf')
 		this.newGolfer = function (golfer) {
 				$http({
 					method: 'POST',
-					url: '/golfers',
+					url: '/api/golfers',
 					data: golfer
 				})
 			},
@@ -21,7 +21,7 @@ angular.module('majorGolf')
 			this.updateGolfer = function (golfer) {
 				return $http({
 					method: 'PUT',
-					url: '/golfers/' + golfer._id,
+					url: '/api/golfers/' + golfer._id,
 					data: golfer
 				})
 			}

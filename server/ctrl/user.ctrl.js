@@ -4,7 +4,6 @@ var ObjectId = require('mongoose').Schema.ObjectId;
 module.exports = {
   create: function(req, res, next) {
     console.log('create', req.body);
-
     // var user = new User(req.body) {
     //   user.save(function(err, user) {
     //     if (err) res.status(500).send(err);
@@ -36,12 +35,21 @@ module.exports = {
 
   show: function(req, res, next) {
     User.findOne({
-      username: req.params.id
+      _id: req.params.id
     }, function(e, r) {
       if (e) {
         return res.status(500).send(e);
       }
       return res.status(200).json(r);
     })
+  },
+
+  me: function(req, res, next) {
+    var me = {
+      username: req.user.username
+    };
+    return  res.status(200).json(me);
   }
+
+
 }
