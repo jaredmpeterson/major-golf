@@ -91,13 +91,29 @@ h2 {
   font-weight: 300;
   font-size: 4vmax; }
 
-.profile {
+.home {
   width: 80%;
   height: 100vh;
   margin-top: 50px;
+  padding-top: 50px;
   background-color: #C8E6C9;
   margin: auto;
-  overflow: hidden; }
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap; }
+
+#idcard {
+  height: 250px;
+  width: 25%;
+  border: 2px solid #388E3C; }
+  #idcard img {
+    display: inline-block;
+    padding: 10px; }
+  #idcard h2 {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    display: inline-block; }
 
 .golfers {
   width: 80%;

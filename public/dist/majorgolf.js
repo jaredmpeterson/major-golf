@@ -64,8 +64,8 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 				return golferService.getGolfers();
 			}
 		}
-	}).state('users', {
-		url: '/users',
+	}).state('players', {
+		url: '/players',
 		templateUrl: 'views/profile.html',
 		controller: 'userCtrl',
 		resolve: {
