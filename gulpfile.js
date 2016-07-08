@@ -11,7 +11,7 @@ gulp.task('es6', function() {
   .pipe(babel({
     'presets': ['es2015']
   }))
-  .pipe(order(['public/js/majorgolf.app.js', 'public/js/main.ctrl.js', 'public/js/golfer.ctrl.js', 'public/js/golfer.service.js']))
+  .pipe(order(['**/majorgolf.app.js', '**/main.ctrl.js', '**/golfer.ctrl.js', '**/golfer.service.js']))
   .pipe(concat('majorgolf.js'))
   .pipe(gulp.dest('public/dist/'));
 });
@@ -23,6 +23,6 @@ gulp.task('sass', function() {
 });
 
 gulp.watch('public/styles/*.scss', ['sass']);
-gulp.watch(['public/js/*.js'], ['es6']);
+gulp.watch('public/js/*.js', ['es6']);
 
 gulp.task('default', ['es6', 'sass']);
