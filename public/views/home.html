@@ -1,21 +1,18 @@
-<section class="home">
-  <!-- <div class="heroimage">
-    <h2 class="title">{{ user.username }}</h2>
-  </div> -->
+<aside class="id">
   <div id="idcard">
-    <img ng-src="{{ profile.photos[0].value }}" alt="" />
-    <h2>User</h2>
-    <p>
       <em id="country">{{ profile._json.location }}</em><br>
       {{ profile._json.description }}
-    </p>
   </div>
-  <div class="">
-    <h3>My Games</h3>
-    <!-- <div class="games" ng-repeat="game in games | filterBy: ">
-    </div> -->
-    <h3>New Game</h3>
-    <button type="button" name="button"><a href>+</a></button><br>
+  <div class="games">
+    My Games
+      <ul>
+        <li>Masters</li>
+        <li>U.S. Open</li>
+        <li>The Open Championship</li>
+        <li>PGA Championship</li>
+      </ul>
+  </div>
+</aside>
+<section class="home">
 
-  </div>
 </section>

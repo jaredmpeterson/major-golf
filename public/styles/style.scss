@@ -1,271 +1,269 @@
+@import '../bower_components/modular-scale/stylesheets/modular-scale';
 @import url(https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Open+Sans:300,400,700);
 $ML: 'Miriam Libre', sans-serif;
 $OS: 'Open Sans', sans-serif;
-
+$ms-base: 1em;
+$ms-ratio: $golden;
 $GREEN: #076652;
 $MG: #006b54;
-$MR: #EC222E;
-
-// AUGUSTA
+$MR: #EC222E; // AUGUSTA
 $MY: #FFF000;
 $UNDER: #BF0000;
 $OVER: #14543E;
-$GRAY: #999999;
-
-// MATERIAL
-$dark:    #388E3C;
-$main:    #4CAF50;
-$light:   #C8E6C9;
-$icons:   #FFFFFF;
-$accent:  #FFEB3B;
-$text:    #212121;
-$text2:   #727272;
+$GRAY: #999999; // MATERIAL
+$dark: #388E3C;
+$main: #4CAF50;
+$light: #C8E6C9;
+$icons: #FFFFFF;
+$accent: #FFEB3B;
+$text: #212121;
+$text2: #727272;
 $divider: #B6B6B6;
-
-
-// Header & Nav
-
-header {
-  background-color: black;
-  position: fixed;
-  z-index: 1;
-  height: 50px;
-  width: 100% !important;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: stretch;
-  // box-shadow: 0 3px 5px rgba(182, 182, 182, .7);
-
-  .logo {
-    // flex-grow: 1; //header child
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    h2 {
-      color: $icons;
-      font-weight: 400;
-      // text-shadow: -0.5px 0.5px 0.5px darken($icons, 5%);
-    }
-  }
-
-  nav {
-    // width: 50%;
-    height: auto;
-    // flex-grow: 2; //header child
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-
-    ul {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      list-style: none;
-      font-family: $OS;
-      font-weight: 300;
-
-
-      a {
-      text-decoration: none;
-      display: block;
-      padding: 1em;
-      color: $icons;
-      }
-
-      a:hover {
-        color: $MY;
-        // border-bottom: 1px solid $icons;
-      }
-    }
-  }
-
-  .rightnav {
-    // flex-grow: 1; //header child
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-
-  .avatar {
-    height: 50px;
-    width: 50px;
-    image-resolution: from-image;
-    box-sizing: border-box;
-  }
+html {
+    font-size: ms(0);
 }
-
-// Body
-
-h2 {
-  font-family: $ML;
-  color: $icons;
-}
-
 body {
-  // background-color: $main;
+    // background-color: white;
+    font-family: $OS;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: $text;
 }
-
-.wrapper {
-  width: 100% !important;
-  height: 100vh;
-  margin-top: 50px;
-  // display: flex;
-  // flex-flow: row wrap;
-  // justify-content: center;
-  // align-content: center;
-  // align-items: center;
+p {
+    margin-bottom: 1.3em;
 }
-
+h1,
+h2,
+h3,
+h4 {
+    margin: 1.414em 0 0.5em;
+    font-family: $ML;
+    font-weight: inherit;
+    line-height: 1.2;
+}
+h1 {
+    margin-top: 0;
+    font-size: ms(4);
+}
+h2 {
+    font-size: ms(3);
+    color: $icons;
+}
+h3 {
+    font-size: ms(2);
+}
+h4 {
+    font-size: ms(1);
+}
+.font_small,
+small {
+    font-size: ms(-1);
+}
+// Header & Nav
+jared {
+    box-sizing: border-box;
+    header {
+        background-color: black;
+        box-sizing: border-box;
+        position: fixed;
+        z-index: 1;
+        height: 50px;
+        width: 100% !important;
+        margin: auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: stretch;
+        .logo {
+            // flex-grow: 1; //header child
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            color: $icons;
+            font-weight: 400;
+            padding-left: 50px;
+            h4 {
+                margin: 0;
+                padding: 0;
+                line-height: ms(1);
+                // text-shadow: -0.5px 0.5px 0.5px darken($icons, 5%);
+            }
+        }
+        nav {
+            // width: 50%;
+            height: auto;
+            // flex-grow: 2; //header child
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            ul {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                list-style: none;
+                font-family: $OS;
+                font-weight: 300;
+                line-height: ms(-1);
+                a {
+                    text-decoration: none;
+                    display: block;
+                    padding: 1em;
+                    color: $icons;
+                }
+                a:hover {
+                    color: $MY;
+                }
+            }
+        }
+        .avatar {
+            height: 50px;
+            width: 50px;
+            image-resolution: from-image;
+            box-sizing: border-box;
+        }
+    }
+}
+// Body
+.view {
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    width: 100% !important;
+    padding-top: 50px;
+    height: 100vh;
+}
 .login {
-  // flex: 1 100%;
-  height: 100vh;
-  // margin-top: 50px;
-  background-image: url(http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg);
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  align-items: center;
-  // margin: auto;
-  overflow: hidden;
-
-  html {
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-  }
+    width: 100%;
+    background-image: url("http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg");
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    overflow: hidden;
 }
-
 .heroimage {
-  width: 100%;
-  height: 35vh;
-  min-height: 200px;
-  // margin-top: 50px;
-  background-image: url(http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg);
-  background-position: bottom;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: flex-end;
-
-  // background-repeat: no-repeat;
-}
-
-.title {
-  // border: 2px solid orange;
-  color: $icons;
-  font-family: $OS;
-  font-weight: 300;
-  font-size: 4vmax;
-}
-
-.home {
-  width: 80%;
-  height: 100vh;
-  margin-top: 50px;
-  padding-top: 50px;
-  background-color: $light;
-  margin: auto;
-  overflow: hidden;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-#idcard {
-  height: 250px;
-  width: 25%;
-  border: 2px solid $dark;
-  // margin: auto;
-  img {
-    display: inline-block;
-    padding: 10px;
-  }
-  h2 {
-    margin: 0;
-    padding: 0;
-    line-height: normal;
-    display: inline-block;
-  }
-}
-
-.golfers {
-  width: 80%;
-  height: auto;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-content: space-around;
-}
-
-.golfer {
-  height: 50px;
-  width: 30%;
-  min-width: 200px;
-  // border: 1px solid $divider;
-  padding: 5px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-  color: $text;
-  font-family: $OS;
-  background-color: $light;
-
-  .rank {
-    height: 100%;
-    margin: 0 25px 0 10px;
-    color: $dark;
-    text-align: center;
+    flex: 1 100%;
+    height: 35vh;
+    min-height: 200px;
+    background-image: url("http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg");
+    background-position: bottom;
+    background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
-    font-weight: 700;
-  }
-
-  #country {
-    color: $text2;
-  }
-
+    align-content: center;
+    align-items: flex-end;
+    // background-repeat: no-repeat;
 }
-
-#mgsplash {
-  margin-top: 50px;
+.title {
+    color: $icons;
+    font-family: $OS;
+    font-weight: 300;
 }
-
-@media all and (max-width: 800px) {
-  header {
-    justify-content: space-around;
-  }
-
-  .golfers {
-    width: 100%;
-  }
-}
-
-@media all and (max-width: 600px) {
-  header {
-    // -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
-    padding: 0;
-  }
-
-  ul a {
-    text-align: center;
+.id {
+    flex: 1;
+    order: 2;
     padding: 10px;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-  }
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
 
-  ul li:last-of-type a {
-    border-bottom: none;
-  }
+    #idcard {
+      flex: 1;
+      margin: ms(0);
+      padding: 10px;
+      box-sizing: border-box;
+      border: .5px solid $divider;
+      box-shadow: 2px 2px $text2;
+    }
+    .games {
+      margin: ms(0);
+      flex: 2;
+      padding: 10px;
+      box-sizing: border-box;
+      border: .5px solid $divider;
+      box-shadow: 2px 2px $text2;
+    }
+}
+.home {
+    flex: 3;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+}
+.home > * {
+    padding: ms(0);
+    flex: 1 100%;
+}
+.golfers {
+  padding: ms(2);
+    flex: 1 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.golfer {
+    flex: 2 1 250px;
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $light;
+
+    .rank {
+      // background-color: $icons;
+      // border-radius: 100%;
+        flex: 1 25% 250px;
+        margin: ms(0);
+        color: $dark;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+    }
+
+    p {
+      flex: 3;
+      text-align: left;
+      padding-left: 10px;
+      border-left: 1px solid $divider;
+    }
+    #country {
+        color: $text2;
+    }
+}
+#mgsplash {
+    margin-top: 50px;
+}
+@media all and (max-width: 800px) {
+    header {
+        justify-content: space-around;
+    }
+    .golfers {
+        width: 100%;
+    }
+}
+@media all and (max-width: 600px) {
+    header {
+        // -webkit-flex-flow: column wrap;
+        flex-flow: column wrap;
+        padding: 0;
+    }
+    ul a {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid rgba(255,255,255,0.3);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    ul li:last-of-type a {
+        border-bottom: none;
+    }
 }

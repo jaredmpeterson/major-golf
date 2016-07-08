@@ -1,83 +1,120 @@
 @import url(https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Open+Sans:300,400,700);
-header {
-  background-color: black;
-  position: fixed;
-  z-index: 1;
-  height: 50px;
-  width: 100% !important;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: stretch; }
-  header .logo {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center; }
-    header .logo h2 {
-      color: #FFFFFF;
-      font-weight: 400; }
-  header nav {
-    height: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center; }
-    header nav ul {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      list-style: none;
-      font-family: "Open Sans", sans-serif;
-      font-weight: 300; }
-      header nav ul a {
-        text-decoration: none;
-        display: block;
-        padding: 1em;
-        color: #FFFFFF; }
-      header nav ul a:hover {
-        color: #FFF000; }
-  header .rightnav {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center; }
-  header .avatar {
-    height: 50px;
-    width: 50px;
-    image-resolution: from-image;
-    box-sizing: border-box; }
+html {
+  font-size: 1em; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: #212121; }
+
+p {
+  margin-bottom: 1.3em; }
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.414em 0 0.5em;
+  font-family: "Miriam Libre", sans-serif;
+  font-weight: inherit;
+  line-height: 1.2; }
+
+h1 {
+  margin-top: 0;
+  font-size: 6.8541em; }
 
 h2 {
-  font-family: "Miriam Libre", sans-serif;
+  font-size: 4.23607em;
   color: #FFFFFF; }
 
-.wrapper {
+h3 {
+  font-size: 2.61803em; }
+
+h4 {
+  font-size: 1.61803em; }
+
+.font_small,
+small {
+  font-size: 0.61803em; }
+
+jared {
+  box-sizing: border-box; }
+  jared header {
+    background-color: black;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 1;
+    height: 50px;
+    width: 100% !important;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch; }
+    jared header .logo {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      font-weight: 400;
+      padding-left: 50px; }
+      jared header .logo h4 {
+        margin: 0;
+        padding: 0;
+        line-height: 1.61803em; }
+    jared header nav {
+      height: auto;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-content: center;
+      align-items: center; }
+      jared header nav ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        list-style: none;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        line-height: 0.61803em; }
+        jared header nav ul a {
+          text-decoration: none;
+          display: block;
+          padding: 1em;
+          color: #FFFFFF; }
+        jared header nav ul a:hover {
+          color: #FFF000; }
+    jared header .avatar {
+      height: 50px;
+      width: 50px;
+      image-resolution: from-image;
+      box-sizing: border-box; }
+
+.view {
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
   width: 100% !important;
-  height: 100vh;
-  margin-top: 50px; }
+  padding-top: 50px;
+  height: 100vh; }
 
 .login {
-  height: 100vh;
-  background-image: url(http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg);
+  width: 100%;
+  background-image: url("http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg");
   display: flex;
   flex-flow: column wrap;
   justify-content: space-around;
   align-content: space-around;
   align-items: center;
   overflow: hidden; }
-  .login html {
-    overflow: hidden;
-    width: 100%;
-    height: 100%; }
 
 .heroimage {
-  width: 100%;
+  flex: 1 100%;
   height: 35vh;
   min-height: 200px;
-  background-image: url(http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg);
+  background-image: url("http://cache.marriott.com/propertyimages/p/phxcb/modules/golf/5256759_camelback/phxcb_golf_home.jpg");
   background-position: bottom;
   background-size: cover;
   display: flex;
@@ -88,63 +125,72 @@ h2 {
 .title {
   color: #FFFFFF;
   font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  font-size: 4vmax; }
+  font-weight: 300; }
+
+.id {
+  flex: 1;
+  order: 2;
+  padding: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center; }
+  .id #idcard {
+    flex: 1;
+    margin: 1em;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0.5px solid #B6B6B6;
+    box-shadow: 2px 2px #727272; }
+  .id .games {
+    margin: 1em;
+    flex: 2;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0.5px solid #B6B6B6;
+    box-shadow: 2px 2px #727272; }
 
 .home {
-  width: 80%;
-  height: 100vh;
-  margin-top: 50px;
-  padding-top: 50px;
-  background-color: #C8E6C9;
-  margin: auto;
+  flex: 3;
   overflow: hidden;
   display: flex;
   flex-flow: row wrap; }
 
-#idcard {
-  height: 250px;
-  width: 25%;
-  border: 2px solid #388E3C; }
-  #idcard img {
-    display: inline-block;
-    padding: 10px; }
-  #idcard h2 {
-    margin: 0;
-    padding: 0;
-    line-height: normal;
-    display: inline-block; }
+.home > * {
+  padding: 1em;
+  flex: 1 100%; }
 
 .golfers {
-  width: 80%;
-  height: auto;
-  margin: auto;
+  padding: 2.61803em;
+  flex: 1 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   align-content: space-around; }
 
 .golfer {
-  height: 50px;
-  width: 30%;
-  min-width: 200px;
+  flex: 2 1 250px;
   padding: 5px;
-  margin-top: 10px;
+  margin: 10px;
   display: flex;
   align-items: center;
-  text-align: left;
-  color: #212121;
-  font-family: "Open Sans", sans-serif;
+  justify-content: center;
   background-color: #C8E6C9; }
   .golfer .rank {
-    height: 100%;
-    margin: 0 25px 0 10px;
+    flex: 1 25% 250px;
+    margin: 1em;
     color: #388E3C;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 700; }
+  .golfer p {
+    flex: 3;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 1px solid #B6B6B6; }
   .golfer #country {
     color: #727272; }
 
