@@ -6,8 +6,9 @@ var Golfer = require('./golfer.model.js');
 
 var gameSchema = new Schema({
   _creator : { type: String, ref: 'User' },
-  players: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  golfers: [{ type: Schema.Types.ObjectId, ref: 'Golfer' }]
+  _created: { type: Date, default: Date.now },
+  name: String,
+  players: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 module.exports = mongoose.model("Game", gameSchema);
