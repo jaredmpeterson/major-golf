@@ -8,7 +8,8 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 		templateUrl: 'views/login.html'
 	}).state('home', {
 		url: '/home',
-		templateUrl: 'views/home.html'
+		templateUrl: 'views/home.html',
+		authenticate: true
 	}).state('golfers', {
 		url: '/golfers',
 		templateUrl: './views/golfers.html',

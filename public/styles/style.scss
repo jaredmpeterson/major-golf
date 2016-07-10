@@ -61,14 +61,17 @@ small {
 }
 // Header & Nav
 jared {
-    box-sizing: border-box;
+    > * {
+      box-sizing: border-box;
+    }
+
     header {
         background-color: black;
         box-sizing: border-box;
         position: fixed;
         z-index: 1;
         height: 50px;
-        width: 100% !important;
+        min-width: 100% !important;
         margin: auto;
         display: flex;
         flex-flow: row wrap;
@@ -95,11 +98,12 @@ jared {
             height: auto;
             // flex-grow: 2; //header child
             display: flex;
-            flex-flow: row nowrap;
+            flex-flow: row wrap;
             justify-content: center;
             align-content: center;
             align-items: center;
             ul {
+                // position: absolute;
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: center;
@@ -115,6 +119,18 @@ jared {
                 }
                 a:hover {
                     color: $MY;
+                }
+                li {
+                  // position: absolute;
+                }
+
+                li ul {
+                  display: none;
+                }
+
+                li:hover ul {
+                    display: flex;
+                    flex-flow: column wrap;
                 }
             }
         }
@@ -172,22 +188,21 @@ jared {
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
-
     #idcard {
-      flex: 1;
-      margin: ms(0);
-      padding: 10px;
-      box-sizing: border-box;
-      border: .5px solid $divider;
-      box-shadow: 2px 2px $text2;
+        flex: 1;
+        margin: ms(0);
+        padding: 10px;
+        box-sizing: border-box;
+        border: 0.5px solid $divider;
+        box-shadow: 2px 2px $text2;
     }
     .games {
-      margin: ms(0);
-      flex: 2;
-      padding: 10px;
-      box-sizing: border-box;
-      border: .5px solid $divider;
-      box-shadow: 2px 2px $text2;
+        margin: ms(0);
+        flex: 2;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 0.5px solid $divider;
+        box-shadow: 2px 2px $text2;
     }
 }
 .home {
@@ -200,17 +215,20 @@ jared {
     padding: ms(0);
     flex: 1 100%;
 }
-
 game-list {
-  background-color: $divider;
+    background-color: $divider;
+    flex: 1 100%;
 }
-
 .gamelist {
-  background-color: $light;
+    padding: 25px;
+    margin: auto;
+    background-color: $light;
+    .newgame {
+        margin-top: 50px;
+    }
 }
-
 .golfers {
-  padding: ms(2);
+    padding: ms(2);
     flex: 1 100%;
     display: flex;
     flex-flow: row wrap;
@@ -225,10 +243,9 @@ game-list {
     align-items: center;
     justify-content: center;
     background-color: $light;
-
     .rank {
-      // background-color: $icons;
-      // border-radius: 100%;
+        // background-color: $icons;
+        // border-radius: 100%;
         flex: 1 25% 250px;
         margin: ms(0);
         color: $dark;
@@ -238,12 +255,11 @@ game-list {
         align-items: center;
         font-weight: 700;
     }
-
     p {
-      flex: 3;
-      text-align: left;
-      padding-left: 10px;
-      border-left: 1px solid $divider;
+        flex: 3;
+        text-align: left;
+        padding-left: 10px;
+        border-left: 1px solid $divider;
     }
     #country {
         color: $text2;

@@ -47,6 +47,7 @@ module.exports = {
   },
 
   me: function(req, res) {
+    // console.log(req.user.userInfo);
     if (req.user) res.status(200).json(req.user.userInfo);
   }
 

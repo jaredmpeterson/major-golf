@@ -1,16 +1,19 @@
 <aside class="id">
-  <div id="idcard">
+  <div ng-if="user" id="idcard">
       <em id="country">{{ profile._json.location }}</em><br>
       {{ profile._json.description }}
   </div>
   <div class="games">
-    My Games
+    Current Games
       <ul>
         <li>Masters</li>
         <li>U.S. Open</li>
         <li>The Open Championship</li>
         <li>PGA Championship</li>
       </ul>
+  </div>
+  <div class="admin">
+      <button type="button" name="button">Admin</button>
   </div>
 </aside>
 <section class="home">

@@ -38,59 +38,65 @@ h4 {
 small {
   font-size: 0.61803em; }
 
-jared {
+jared > * {
   box-sizing: border-box; }
-  jared header {
-    background-color: black;
-    box-sizing: border-box;
-    position: fixed;
-    z-index: 1;
-    height: 50px;
-    width: 100% !important;
-    margin: auto;
+
+jared header {
+  background-color: black;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  height: 50px;
+  min-width: 100% !important;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch; }
+  jared header .logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-weight: 400;
+    padding-left: 50px; }
+    jared header .logo h4 {
+      margin: 0;
+      padding: 0;
+      line-height: 1.61803em; }
+  jared header nav {
+    height: auto;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: stretch; }
-    jared header .logo {
+    justify-content: center;
+    align-content: center;
+    align-items: center; }
+    jared header nav ul {
       display: flex;
+      flex-flow: row wrap;
       justify-content: center;
-      align-content: center;
-      align-items: center;
-      color: #FFFFFF;
-      font-weight: 400;
-      padding-left: 50px; }
-      jared header .logo h4 {
-        margin: 0;
-        padding: 0;
-        line-height: 1.61803em; }
-    jared header nav {
-      height: auto;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-content: center;
-      align-items: center; }
-      jared header nav ul {
+      list-style: none;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 300;
+      line-height: 0.61803em; }
+      jared header nav ul a {
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        color: #FFFFFF; }
+      jared header nav ul a:hover {
+        color: #FFF000; }
+      jared header nav ul li ul {
+        display: none; }
+      jared header nav ul li:hover ul {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        list-style: none;
-        font-family: "Open Sans", sans-serif;
-        font-weight: 300;
-        line-height: 0.61803em; }
-        jared header nav ul a {
-          text-decoration: none;
-          display: block;
-          padding: 1em;
-          color: #FFFFFF; }
-        jared header nav ul a:hover {
-          color: #FFF000; }
-    jared header .avatar {
-      height: 50px;
-      width: 50px;
-      image-resolution: from-image;
-      box-sizing: border-box; }
+        flex-flow: column wrap; }
+  jared header .avatar {
+    height: 50px;
+    width: 50px;
+    image-resolution: from-image;
+    box-sizing: border-box; }
 
 .view {
   display: flex;
@@ -162,10 +168,15 @@ jared {
   flex: 1 100%; }
 
 game-list {
-  background-color: #B6B6B6; }
+  background-color: #B6B6B6;
+  flex: 1 100%; }
 
 .gamelist {
+  padding: 25px;
+  margin: auto;
   background-color: #C8E6C9; }
+  .gamelist .newgame {
+    margin-top: 50px; }
 
 .golfers {
   padding: 2.61803em;
