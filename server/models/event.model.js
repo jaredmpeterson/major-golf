@@ -4,7 +4,7 @@ var ObjectId = Schema.ObjectId;
 var User = require('./user.model.js');
 
 var eventSchema = new Schema({
-  _creator : { type: String, ref: 'User' },
+  creator : { type: String, ref: 'User' },
   name: String,
   date: Date,
   golfers: [

@@ -200,6 +200,15 @@ jared {
     padding: ms(0);
     flex: 1 100%;
 }
+
+game-list {
+  background-color: $divider;
+}
+
+.gamelist {
+  background-color: $light;
+}
+
 .golfers {
   padding: ms(2);
     flex: 1 100%;

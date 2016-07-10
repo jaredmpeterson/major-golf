@@ -1,0 +1,13 @@
+<section class="gamelist">
+  <h4>My Games</h4>
+  <div ng-repeat="game in games | filter: user.username">
+    {{ game.created }}<br />
+    Host: {{ game.creator.username }}
+  </div>
+
+  <!-- <div class="">
+    <p ng-repeat="(key, value) in user">
+      {{ value }}
+    </p>
+  </div> -->
+</section>

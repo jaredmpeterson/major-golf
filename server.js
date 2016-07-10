@@ -89,9 +89,11 @@ app.get('/logout', function(req, res){
 });
 
 passport.serializeUser(function (user, done) {
+	console.log('serialize');
 	done(null, user.id);
 });
 passport.deserializeUser(function (id, done) {
+	console.log('deserialize');
 	User.findById(id, function(err, user) {
 		done(null, user);
 	})

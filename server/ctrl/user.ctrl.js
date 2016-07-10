@@ -13,6 +13,7 @@ module.exports = {
   },
 
   read: function(req, res, next) {
+    console.log('read', req.body);
     User.find(req.query, function(err, user) {
       if (err) res.status(500).send(err);
       res.status(200).send(user);
@@ -34,6 +35,7 @@ module.exports = {
   },
 
   show: function(req, res, next) {
+    console.log('show', req.body);
     User.findOne({
       _id: req.params.id
     }, function(e, r) {
@@ -44,16 +46,8 @@ module.exports = {
     })
   },
 
-  me: function(req, res, next) {
-    if (req.user) {  var me = {
-        username: req.user.username,
-        profile: req.user.twitter
-      };
-      // console.log(me.profile);
-      return  res.status(200).json(me);
-    } else {
-      
-    }
+  me: function(req, res) {
+    if (req.user) res.status(200).json(req.user.userInfo);
   }
 
 

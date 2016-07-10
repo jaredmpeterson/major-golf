@@ -1,14 +1,16 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
-var User = require('./user.model.js');
-var Golfer = require('./golfer.model.js');
 
+var User = require('./user.model.js');
+// var Golfer = require('./golfer.model.js');
+
+// Game Schema
 var gameSchema = new Schema({
-  _creator : { type: String, ref: 'User' },
-  _created: { type: Date, default: Date.now },
+  creator : {type: Schema.Types.ObjectId, ref:'User'},
+  created: { type: Date, default: new Date() },
   name: String,
   players: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
-module.exports = mongoose.model("Game", gameSchema);
+module.exports = mongoose.model('Game', gameSchema);

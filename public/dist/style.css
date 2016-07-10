@@ -161,6 +161,12 @@ jared {
   padding: 1em;
   flex: 1 100%; }
 
+game-list {
+  background-color: #B6B6B6; }
+
+.gamelist {
+  background-color: #C8E6C9; }
+
 .golfers {
   padding: 2.61803em;
   flex: 1 100%;

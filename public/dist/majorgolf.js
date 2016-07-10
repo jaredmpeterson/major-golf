@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+	// Config
 	$urlRouterProvider.otherwise('/');
 	$stateProvider.state('login', {
 		url: '/',
@@ -19,24 +20,23 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 		}
 	}).state('players', {
 		url: '/players',
-		templateUrl: 'views/profile.html',
+		templateUrl: 'views/players.html',
 		controller: 'userCtrl',
 		resolve: {
 			users: function users(userService) {
 				return userService.getUsers();
 			}
 		}
+	}).state('user', {
+		url: '/players/:id',
+		templateUrl: 'views/profile.html',
+		controller: 'userCtrl',
+		resolve: {
+			user: function user(userService) {
+				return userService.getUser();
+			}
+		}
 	});
-	// .state('user', {
-	// 	url: '/users/:id',
-	// 	templateUrl: 'views/profile.html',
-	// 	controller: 'profileCtrl',
-	// 	resolve: {
-	// 		user: function (userService) {
-	// 			return userService.getUser();
-	// 		}
-	// 	}
-	// })
 }).directive("jared", function () {
 	return {
 		restrict: 'E',
@@ -44,6 +44,13 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 		// scope: {},
 		templateUrl: 'views/nav.html',
 		controller: 'mainCtrl'
+	};
+}).directive('gameList', function () {
+	return {
+		restrict: 'E',
+		// scope: {},
+		templateUrl: 'views/games.html',
+		controller: 'gameCtrl'
 	};
 });
 'use strict';
@@ -92,6 +99,101 @@ angular.module('majorGolf').service('golferService', function ($http) {
 			data: golfer
 		});
 	};
+});
+'use strict';
+
+angular.module('majorGolf').controller('gameCtrl', function ($scope, gameService, $q) {
+
+  // console.log(games);
+
+  // VARIABLES
+  // ============================================================
+  $scope.majorgames = function () {
+    var games = gameService.getGame();
+    games.then(function (games) {
+      $scope.games = games;
+    });
+  };
+
+  $scope.majorgames();
+
+  // FUNCTIONS
+  // ============================================================
+  $scope.getGames = function () {
+    gameService.getGame().then(function (response) {
+      $scope.games = response;
+    });
+  };
+
+  $scope.createGame = function (game) {
+    gameService.createGame(game).then(function (response) {
+      $scope.getGames();
+    });
+  };
+
+  $scope.updateGame = function (id, updatedGame) {
+    gameService.editGame(id, updatedGame).then(function (response) {
+      $scope.getGames();
+    });
+  };
+
+  $scope.deleteGame = function (id) {
+    gameService.deleteGame(id).then(function (response) {
+      $scope.getGames();
+    });
+  };
+
+  setTimeout(function () {
+    $scope.getGames();
+  }, 500);
+});
+'use strict';
+
+// INITILIZE SERVICE
+// ============================================================
+angular.module('majorGolf').service('gameService', function ($http) {
+
+  // CRUD FUNCTIONS
+  // ============================================================
+  this.getGame = function (id) {
+    // var query = "";
+    // if (id) query = '?_id=' + id;
+    return $http({
+      method: 'GET',
+      url: '/api/games'
+    }).then(function (response) {
+      return response.data;
+    });
+  };
+  this.createGame = function (game) {
+    return $http({
+      method: 'POST',
+      url: '/api/games',
+      data: game
+    }).then(function (response) {
+      return response;
+    });
+  };
+  this.editGame = function (id, game) {
+    return $http({
+      method: 'PUT',
+      url: "/api/games/" + id,
+      data: game
+    }).then(function (response) {
+      return response;
+    });
+  };
+  this.deleteGame = function (id) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/games/' + id
+    }).then(function (response) {
+      return response;
+    });
+  };
+
+  // OTHER FUNCTIONS
+  // ============================================================
 });
 'use strict';
 
