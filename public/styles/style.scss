@@ -36,7 +36,7 @@ h1,
 h2,
 h3,
 h4 {
-    margin: 1.414em 0 0.5em;
+    margin: ms(-1) 0;
     font-family: $ML;
     font-weight: inherit;
     line-height: 1.2;
@@ -62,9 +62,8 @@ small {
 // Header & Nav
 jared {
     > * {
-      box-sizing: border-box;
+        box-sizing: border-box;
     }
-
     header {
         background-color: black;
         box-sizing: border-box;
@@ -121,13 +120,11 @@ jared {
                     color: $MY;
                 }
                 li {
-                  // position: absolute;
+                    // position: absolute;
                 }
-
                 li ul {
-                  display: none;
+                    display: none;
                 }
-
                 li:hover ul {
                     display: flex;
                     flex-flow: column wrap;
@@ -143,7 +140,7 @@ jared {
     }
 }
 // Body
-.view {
+ui-view {
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
@@ -151,6 +148,7 @@ jared {
     padding-top: 50px;
     height: 100vh;
 }
+
 .login {
     width: 100%;
     background-image: url("http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg");
@@ -182,15 +180,15 @@ jared {
 .id {
     flex: 1;
     order: 2;
-    padding: 10px;
+    // padding: 10px;
     display: flex;
     flex-flow: column wrap;
-    justify-content: space-between;
-    align-content: space-between;
-    align-items: center;
+    // justify-content: flex-end;
+    // align-content: space-between;
+    align-items: flex-end;
     #idcard {
-        flex: 1;
-        margin: ms(0);
+        flex: 0 0 content;
+        // margin: ms(0);
         padding: 10px;
         box-sizing: border-box;
         border: 0.5px solid $divider;
@@ -198,7 +196,7 @@ jared {
     }
     .games {
         margin: ms(0);
-        flex: 2;
+        flex: 0 0 content;
         padding: 10px;
         box-sizing: border-box;
         border: 0.5px solid $divider;
@@ -211,21 +209,27 @@ jared {
     display: flex;
     flex-flow: row wrap;
 }
-.home > * {
+game-list {
     padding: ms(0);
     flex: 1 100%;
-}
-game-list {
     background-color: $divider;
-    flex: 1 100%;
+    border: 2px solid $MY;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
 }
 .gamelist {
-    padding: 25px;
+    flex: 1 50%;
+    padding: ms(0);
     margin: auto;
     background-color: $light;
-    .newgame {
-        margin-top: 50px;
-    }
+}
+.newgame {
+    flex: 1 50%;
+    padding: ms(0);
+    background: $dark;
+    margin-top: 50px;
 }
 .golfers {
     padding: ms(2);

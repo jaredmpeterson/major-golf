@@ -15,7 +15,7 @@ h1,
 h2,
 h3,
 h4 {
-  margin: 1.414em 0 0.5em;
+  margin: 0.61803em 0;
   font-family: "Miriam Libre", sans-serif;
   font-weight: inherit;
   line-height: 1.2; }
@@ -98,7 +98,7 @@ jared header {
     image-resolution: from-image;
     box-sizing: border-box; }
 
-.view {
+ui-view {
   display: flex;
   flex-flow: row wrap;
   box-sizing: border-box;
@@ -136,22 +136,18 @@ jared header {
 .id {
   flex: 1;
   order: 2;
-  padding: 10px;
   display: flex;
   flex-flow: column wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  align-items: center; }
+  align-items: flex-end; }
   .id #idcard {
-    flex: 1;
-    margin: 1em;
+    flex: 0 0 content;
     padding: 10px;
     box-sizing: border-box;
     border: 0.5px solid #B6B6B6;
     box-shadow: 2px 2px #727272; }
   .id .games {
     margin: 1em;
-    flex: 2;
+    flex: 0 0 content;
     padding: 10px;
     box-sizing: border-box;
     border: 0.5px solid #B6B6B6;
@@ -163,20 +159,27 @@ jared header {
   display: flex;
   flex-flow: row wrap; }
 
-.home > * {
-  padding: 1em;
-  flex: 1 100%; }
-
 game-list {
+  padding: 1em;
+  flex: 1 100%;
   background-color: #B6B6B6;
-  flex: 1 100%; }
+  border: 2px solid #FFF000;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-start; }
 
 .gamelist {
-  padding: 25px;
+  flex: 1 50%;
+  padding: 1em;
   margin: auto;
   background-color: #C8E6C9; }
-  .gamelist .newgame {
-    margin-top: 50px; }
+
+.newgame {
+  flex: 1 50%;
+  padding: 1em;
+  background: #388E3C;
+  margin-top: 50px; }
 
 .golfers {
   padding: 2.61803em;
