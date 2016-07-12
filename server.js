@@ -27,12 +27,14 @@ var userCtrl = require('./server/ctrl/user.ctrl.js');
 var golferCtrl = require('./server/ctrl/golfer.ctrl.js');
 var gameCtrl = require('./server/ctrl/game.ctrl.js');
 var proCtrl = require('./server/ctrl/pro.ctrl.js');
+var eventCtrl = require('./server/ctrl/event.ctrl.js');
 
 //Models
 var User = require('./server/models/user.model.js');
 var Golfer = require('./server/models/golfer.model.js');
 var Game = require('./server/models/game.model.js');
 var Pro = require('./server/models/pro.model.js');
+var Event = require('./server/models/event.model.js');
 
 //Variables
 var port = 3000;
@@ -126,6 +128,12 @@ app.put('/api/games/:id', gameCtrl.update);
 app.post('/api/games', gameCtrl.create);
 app.delete('/api/games/:id', gameCtrl.delete);
 
+// Event Endpoints
+app.get('/api/event', eventCtrl.read);
+app.get('/api/event/:id', eventCtrl.show);
+app.put('/api/event/:id', eventCtrl.update);
+app.post('/api/event', eventCtrl.create);
+app.delete('/api/event/:id', eventCtrl.delete);
 
 //Listen
 app.listen(port, function () {
