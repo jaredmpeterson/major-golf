@@ -3,6 +3,7 @@
       <em id="country">{{ profile._json.location }}</em><br>
       {{ profile._json.description }}
   </div>
+  <events></events>
   <div class="games">
     Current Games
       <ul>
@@ -12,7 +13,7 @@
         <li>PGA Championship</li>
       </ul>
   </div>
-  <div class="admin">
+  <div ng-if="user.admin" class="admin">
       <button type="button" name="button">Admin</button>
   </div>
 </aside>

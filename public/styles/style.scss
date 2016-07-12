@@ -160,6 +160,7 @@ ui-view {
     overflow: hidden;
 }
 .heroimage {
+    order: 1;
     flex: 1 100%;
     height: 35vh;
     min-height: 200px;
@@ -167,25 +168,39 @@ ui-view {
     background-position: bottom;
     background-size: cover;
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
     align-content: center;
-    align-items: flex-end;
+    align-items: center;
     // background-repeat: no-repeat;
+    .title {
+        color: $icons;
+        font-family: $OS;
+        font-weight: 300;
+    }
+    .search {
+      font: $OS;
+      text-decoration:none;
+
+      color: $icons;
+      background-color: transparent;
+      border:2px solid $icons;
+      border-radius:100px;
+
+      padding: ms(-1) ms(0);
+      margin:5px;
+    }
 }
-.title {
-    color: $icons;
-    font-family: $OS;
-    font-weight: 300;
-}
+
 .id {
     flex: 1;
     order: 2;
     // padding: 10px;
     display: flex;
     flex-flow: column wrap;
-    // justify-content: flex-end;
-    // align-content: space-between;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-content: space-around;
+    align-items: flex-start;
     #idcard {
         flex: 0 0 content;
         // margin: ms(0);
@@ -209,11 +224,17 @@ ui-view {
     display: flex;
     flex-flow: row wrap;
 }
+
+events {
+  padding: ms(0);
+  flex: 1;
+}
+
 game-list {
     padding: ms(0);
     flex: 1 100%;
-    background-color: $divider;
-    border: 2px solid $MY;
+    background-color: $icons;
+    border-right: 2px solid $divider;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -223,21 +244,84 @@ game-list {
     flex: 1 50%;
     padding: ms(0);
     margin: auto;
-    background-color: $light;
+
+
+    .game {
+      margin: ms(0);
+      padding: ms(0);
+      background-color: $light;
+
+      a.button{
+        display:inline-block;
+        // float: right;
+
+      	font: $OS;
+      	text-decoration:none;
+
+      	color: $MR;
+      	background-color: transparent;
+      	border:1px solid $MR;
+      	border-radius:100px;
+
+      	padding: ms(-1) ms(0);
+      	margin:5px;
+
+      	background-size: 200% 100%;
+      	background-image: linear-gradient(to right, transparent 50%, $MR 50%);
+      	transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+      }
+
+      a.button:hover{
+      	color: $icons;
+      	background-color:$MR;
+      	background-position: -100% 100%;
+      }
+    }
 }
 .newgame {
+    align-self: flex-end;
     flex: 1 50%;
     padding: ms(0);
     background: $dark;
     margin-top: 50px;
+
+    a.button{
+      display:inline-block;
+      // float: right;
+
+      font: $OS;
+      text-decoration:none;
+
+      color: $MR;
+      background-color: transparent;
+      border:1px solid $MR;
+      border-radius:100px;
+
+      padding: ms(-1) ms(0);
+      margin:5px;
+
+      background-size: 200% 100%;
+      background-image: linear-gradient(to right, transparent 50%, $MR 50%);
+      transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+    }
+
+    a.button:hover{
+      color: $icons;
+      background-color:$MR;
+      background-position: -100% 100%;
+    }
 }
+
 .golfers {
+    order: 2;
     padding: ms(2);
-    flex: 1 100%;
+    flex: 1;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-content: space-around;
+    align-items: flex-start;
+    // background-color: $dark;
 }
 .golfer {
     flex: 2 1 250px;
@@ -272,6 +356,9 @@ game-list {
 #mgsplash {
     margin-top: 50px;
 }
+
+
+
 @media all and (max-width: 800px) {
     header {
         justify-content: space-around;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('majorGolf', ['ngAnimate', 'ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 	// Config
 	$urlRouterProvider.otherwise('/');
 	$stateProvider.state('login', {
@@ -52,6 +52,13 @@ angular.module('majorGolf', ['ui.router']).config(function ($stateProvider, $url
 		// scope: {},
 		templateUrl: 'views/games.html',
 		controller: 'gameCtrl'
+	};
+}).directive('events', function () {
+	return {
+		restrict: 'E',
+		// scope: {},
+		templateUrl: 'views/event.html',
+		controller: 'eventCtrl'
 	};
 });
 'use strict';
@@ -158,6 +165,101 @@ angular.module('majorGolf').controller('gameCtrl', function ($scope, gameService
   setTimeout(function () {
     $scope.getGames();
   }, 500);
+});
+'use strict';
+
+angular.module('majorGolf').controller('eventCtrl', function ($scope, eventService, $q) {
+
+  // console.log(events);
+
+  // VARIABLES
+  // ============================================================
+  $scope.majorevents = function () {
+    var events = eventService.getEvent();
+    events.then(function (events) {
+      $scope.events = events;
+    });
+  };
+
+  $scope.majorevents();
+
+  // FUNCTIONS
+  // ============================================================
+  $scope.getEvents = function () {
+    eventService.getEvent().then(function (response) {
+      $scope.events = response;
+    });
+  };
+
+  $scope.createEvent = function (event) {
+    eventService.createEvent(event).then(function (response) {
+      $scope.getEvents();
+    });
+  };
+
+  $scope.updateEvent = function (id, updatedEvent) {
+    eventService.editEvent(id, updatedEvent).then(function (response) {
+      $scope.getEvents();
+    });
+  };
+
+  $scope.deleteEvent = function (id) {
+    eventService.deleteEvent(id).then(function (response) {
+      $scope.getEvents();
+    });
+  };
+
+  setTimeout(function () {
+    $scope.getEvents();
+  }, 500);
+});
+'use strict';
+
+// INITILIZE SERVICE
+// ============================================================
+angular.module('majorGolf').service('eventService', function ($http) {
+
+  // CRUD FUNCTIONS
+  // ============================================================
+  this.getEvent = function (id) {
+    // var query = "";
+    // if (id) query = '?_id=' + id;
+    return $http({
+      method: 'GET',
+      url: '/api/event'
+    }).then(function (response) {
+      return response.data;
+    });
+  };
+  this.createEvent = function (event) {
+    return $http({
+      method: 'POST',
+      url: '/api/event',
+      data: event
+    }).then(function (response) {
+      return response;
+    });
+  };
+  this.editEvent = function (id, event) {
+    return $http({
+      method: 'PUT',
+      url: "/api/event/" + id,
+      data: event
+    }).then(function (response) {
+      return response;
+    });
+  };
+  this.deleteEvent = function (id) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/event/' + id
+    }).then(function (response) {
+      return response;
+    });
+  };
+
+  // OTHER FUNCTIONS
+  // ============================================================
 });
 'use strict';
 

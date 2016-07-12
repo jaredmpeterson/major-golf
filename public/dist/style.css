@@ -117,6 +117,7 @@ ui-view {
   overflow: hidden; }
 
 .heroimage {
+  order: 1;
   flex: 1 100%;
   height: 35vh;
   min-height: 200px;
@@ -124,21 +125,32 @@ ui-view {
   background-position: bottom;
   background-size: cover;
   display: flex;
+  flex-flow: column wrap;
   justify-content: center;
   align-content: center;
-  align-items: flex-end; }
-
-.title {
-  color: #FFFFFF;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300; }
+  align-items: center; }
+  .heroimage .title {
+    color: #FFFFFF;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300; }
+  .heroimage .search {
+    font: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    border-radius: 100px;
+    padding: 0.61803em 1em;
+    margin: 5px; }
 
 .id {
   flex: 1;
   order: 2;
   display: flex;
   flex-flow: column wrap;
-  align-items: flex-end; }
+  justify-content: flex-end;
+  align-content: space-around;
+  align-items: flex-start; }
   .id #idcard {
     flex: 0 0 content;
     padding: 10px;
@@ -159,11 +171,15 @@ ui-view {
   display: flex;
   flex-flow: row wrap; }
 
+events {
+  padding: 1em;
+  flex: 1; }
+
 game-list {
   padding: 1em;
   flex: 1 100%;
-  background-color: #B6B6B6;
-  border: 2px solid #FFF000;
+  background-color: #FFFFFF;
+  border-right: 2px solid #B6B6B6;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -172,22 +188,62 @@ game-list {
 .gamelist {
   flex: 1 50%;
   padding: 1em;
-  margin: auto;
-  background-color: #C8E6C9; }
+  margin: auto; }
+  .gamelist .game {
+    margin: 1em;
+    padding: 1em;
+    background-color: #C8E6C9; }
+    .gamelist .game a.button {
+      display: inline-block;
+      font: "Open Sans", sans-serif;
+      text-decoration: none;
+      color: #EC222E;
+      background-color: transparent;
+      border: 1px solid #EC222E;
+      border-radius: 100px;
+      padding: 0.61803em 1em;
+      margin: 5px;
+      background-size: 200% 100%;
+      background-image: linear-gradient(to right, transparent 50%, #EC222E 50%);
+      transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+    .gamelist .game a.button:hover {
+      color: #FFFFFF;
+      background-color: #EC222E;
+      background-position: -100% 100%; }
 
 .newgame {
+  align-self: flex-end;
   flex: 1 50%;
   padding: 1em;
   background: #388E3C;
   margin-top: 50px; }
+  .newgame a.button {
+    display: inline-block;
+    font: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: #EC222E;
+    background-color: transparent;
+    border: 1px solid #EC222E;
+    border-radius: 100px;
+    padding: 0.61803em 1em;
+    margin: 5px;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, #EC222E 50%);
+    transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+  .newgame a.button:hover {
+    color: #FFFFFF;
+    background-color: #EC222E;
+    background-position: -100% 100%; }
 
 .golfers {
+  order: 2;
   padding: 2.61803em;
-  flex: 1 100%;
+  flex: 1;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  align-content: space-around; }
+  align-content: space-around;
+  align-items: flex-start; }
 
 .golfer {
   flex: 2 1 250px;

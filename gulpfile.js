@@ -11,7 +11,7 @@ gulp.task('es6', function() {
   .pipe(babel({
     'presets': ['es2015']
   }))
-  .pipe(order(['**/majorgolf.app.js', '**/main.ctrl.js', '**/golfer.ctrl.js', '**/golfer.service.js', '**/gameCtrl.js']))
+  .pipe(order(['**/majorgolf.app.js', '**/main.ctrl.js', '**/golfer.ctrl.js', '**/golfer.service.js', '**/gameCtrl.js', '**/gameService.js', '**/eventCtrl.js', '**/eventService.js',]))
   .pipe(concat('majorgolf.js'))
   .pipe(gulp.dest('public/dist/'));
 });

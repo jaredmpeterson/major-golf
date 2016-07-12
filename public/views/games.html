@@ -1,15 +1,23 @@
 <section class="gamelist">
-  <h4>My Games</h4>
-  <div ng-repeat="game in games | filter: user.username">
-    <strong>{{ game.name }}</strong><br />
-    Host: {{ game.creator.username }} | Created: {{ game.created | date: short }}
-    <button type="button" ng-click="deleteGame(game._id)">Delete Game</button>
-  </div>
+    <h4>My Games</h4>
+    <div class="game" ng-repeat="game in games | filter: user.username">
+        <strong>{{ game.name }}</strong><br/>
+        Host:
+        {{ game.creator.username }}
+        | Created:
+        {{ game.created | date: short }}<br>
+        <ul ng-repeat=" player in game.players">
+            <li>{{ player.username }}</li>
+        </ul>
+        <a class="button" ng-if="user.id===game.creator._id" ng-click="deleteGame(game._id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        <!-- <button class="" ng-if="user.id===game.creator._id" type="button" ng-click="deleteGame(game._id)">Delete Game</button> -->
+    </div>
 </section>
 
 <section class="newgame">
-    <h4>Create Game</h4>
-  <input type="text" ng-model="newGame.name" placeholder="Game Name">
-  <input type="hidden" required ng-model="newGame.creator" ng-init="newGame.creator=user.id">
-  <button type="button" ng-click="createGame(newGame)">Create Game</button>
+    <h4>Create A Game</h4>
+    <input type="text" ng-model="newGame.name" placeholder="Game Name"><br>
+    <!-- <input type="text" ng-model="newGame.players" placeholder="Players"><br> -->
+    <input type="hidden" required ng-model="newGame.creator" ng-init="newGame.creator=user.id">
+    <a class="button" ng-click="createGame(newGame)"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </section>

@@ -1,4 +1,4 @@
-angular.module('majorGolf', ['ui.router'])
+angular.module('majorGolf', ['ngAnimate', 'ui.router'])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		// Config
 		$urlRouterProvider.otherwise('/');
@@ -56,5 +56,13 @@ angular.module('majorGolf', ['ui.router'])
 			// scope: {},
 			templateUrl: 'views/games.html',
 			controller: 'gameCtrl'
+		}
+	})
+	.directive('events', function () {
+		return {
+			restrict: 'E',
+			// scope: {},
+			templateUrl: 'views/event.html',
+			controller: 'eventCtrl'
 		}
 	});

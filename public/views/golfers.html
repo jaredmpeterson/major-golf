@@ -1,8 +1,9 @@
-<div class="heroimage">
+<section class="heroimage">
     <h2 class="title">{{ title }}</h2>
-</div>
+    <input class="search" type="search" ng-model="q" placeholder="filter golfers..." aria-label="filter golfers" />
+</section>
 <section class="golfers">
-    <div class="golfer" ng-repeat="golfer in golfers | orderBy: 'last_name'">
+    <div class="golfer" ng-repeat="golfer in golfers | filter:q | orderBy: 'last_name'">
         <div class="rank">
             {{ golfer.height }}
         </div>
@@ -12,6 +13,5 @@
             <em id="country">{{ golfer.country}}</em>
             {{ golfer.proInfo }}
         </p>
-
     </div>
 </section>
