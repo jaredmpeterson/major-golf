@@ -6,11 +6,12 @@
     <em id="country">{{ profile._json.location }}</em></p><br>
   </div>
   <div ng-if="user" class="sidenav">
-    <ul>
+    <!-- <ul>
       <li ng-if="user.username"><a class="button" href="/logout">logout</a></li>
       <li ng-if="!user.admin"><a class="button" href="/">admin</a></li>
-    </ul>
-      <!-- <button type="button" name="button">Admin</button> -->
+    </ul> -->
+      <a class="button" ng-if="user.username" href="/logout">logout</a>
+      <a class="button" ng-if="!user.admin" href="/">admin</a>
   </div>
 </aside>
 <section class="home">

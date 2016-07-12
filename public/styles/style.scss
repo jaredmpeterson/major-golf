@@ -191,11 +191,10 @@ ui-view {
 .id {
     flex: 1;
     order: 2;
-    // padding: 10px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-content: space-around;
+    // align-content: space-between;
     align-items: center;
     overflow: hidden;
     #idcard {
@@ -216,25 +215,57 @@ ui-view {
     }
     .sidenav {
       // border: 1px solid $MR;
-      flex: 0 0 content;
+      flex: 1 1 content;
       width: 100%;
       box-sizing: border-box;
-        ul {
-          // width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: center;
+      align-content: center;
+
+      a.button {
           display: flex;
-          flex-flow: column nowrap;
-          justify-content: center;
+          width: 100%;
+          flex: 1 100%;
+          font: $OS;
+          text-decoration: none;
+          color: $text;
+          background-color: transparent;
+          border-top: 1px solid $divider;
+          // border-radius: 100px;
+          padding: ms(-1) ms(0);
+          // margin: 5px;
+          background-size: 200% 100%;
+          background-image: linear-gradient(to right, transparent 50%, $GRAY 50%);
+          transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+      }
+      a.button:hover {
+          color: $icons;
+          background-color: $GRAY;
+          background-position: -100% 100%;
+      }
+
+        ul {
+          align-self: flex-end;
+          box-sizing: border-box;
+          background-color: $divider;
+          flex: 1;
+          align-self: stretch;
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-around;
           align-content: flex-start;
           align-items: flex-start;
+          text-align: right;
             li {
                 flex: 1;
                 list-style: none;
-                width: 100%;
+                box-sizing: border-box;
 
                 a.button {
                     display: flex;
-                    // float: right;
-                    // width: 100%;
+                    flex: 1;
                     font: $OS;
                     text-decoration: none;
                     color: $MR;
@@ -265,7 +296,32 @@ ui-view {
 events {
     padding: ms(0);
     flex: 1;
+
+    .events {
+      h4 {
+        color: $text;
+        text-align: center;
+      }
+      .event {
+        h2 {
+          display: inline-flex;
+          color: $main;
+          font-family: $OS;
+          font-size: ms(1);
+          margin-bottom: 0px;
+          // padding: 0;
+          line-height: ms(0);
+        }
+        em {
+          color: $text2;
+          margin-bottom: ms(0);
+          padding-bottom: ms(0);
+        }
+      }
+
+    }
 }
+
 game-list {
     padding: ms(0);
     flex: 1 100%;
@@ -280,6 +336,8 @@ game-list {
     flex: 1 50%;
     padding: ms(0);
     margin: auto;
+    border-bottom: 2px solid $divider;
+
     .game {
         display: flex;
         align-items: center;
@@ -289,6 +347,7 @@ game-list {
         padding: ms(0);
         border-radius: ms(0);
         background-color: $light;
+        border: 2px solid $dark;
         position: relative;
         a.button {
           // position: absolute;

@@ -149,7 +149,6 @@ ui-view {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-content: space-around;
   align-items: center;
   overflow: hidden; }
   .id #idcard {
@@ -164,21 +163,50 @@ ui-view {
     border: 0.5px solid #B6B6B6;
     box-shadow: 2px 2px #727272; }
   .id .sidenav {
-    flex: 0 0 content;
+    flex: 1 1 content;
     width: 100%;
-    box-sizing: border-box; }
-    .id .sidenav ul {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center; }
+    .id .sidenav a.button {
       display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
+      width: 100%;
+      flex: 1 100%;
+      font: "Open Sans", sans-serif;
+      text-decoration: none;
+      color: #212121;
+      background-color: transparent;
+      border-top: 1px solid #B6B6B6;
+      padding: 0.61803em 1em;
+      background-size: 200% 100%;
+      background-image: linear-gradient(to right, transparent 50%, #999999 50%);
+      transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+    .id .sidenav a.button:hover {
+      color: #FFFFFF;
+      background-color: #999999;
+      background-position: -100% 100%; }
+    .id .sidenav ul {
+      align-self: flex-end;
+      box-sizing: border-box;
+      background-color: #B6B6B6;
+      flex: 1;
+      align-self: stretch;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
       align-content: flex-start;
-      align-items: flex-start; }
+      align-items: flex-start;
+      text-align: right; }
       .id .sidenav ul li {
         flex: 1;
         list-style: none;
-        width: 100%; }
+        box-sizing: border-box; }
         .id .sidenav ul li a.button {
           display: flex;
+          flex: 1;
           font: "Open Sans", sans-serif;
           text-decoration: none;
           color: #EC222E;
@@ -204,6 +232,20 @@ ui-view {
 events {
   padding: 1em;
   flex: 1; }
+  events .events h4 {
+    color: #212121;
+    text-align: center; }
+  events .events .event h2 {
+    display: inline-flex;
+    color: #4CAF50;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.61803em;
+    margin-bottom: 0px;
+    line-height: 1em; }
+  events .events .event em {
+    color: #727272;
+    margin-bottom: 1em;
+    padding-bottom: 1em; }
 
 game-list {
   padding: 1em;
@@ -218,7 +260,8 @@ game-list {
 .gamelist {
   flex: 1 50%;
   padding: 1em;
-  margin: auto; }
+  margin: auto;
+  border-bottom: 2px solid #B6B6B6; }
   .gamelist .game {
     display: flex;
     align-items: center;
@@ -228,6 +271,7 @@ game-list {
     padding: 1em;
     border-radius: 1em;
     background-color: #C8E6C9;
+    border: 2px solid #388E3C;
     position: relative; }
     .gamelist .game a.button {
       display: inline-flex;

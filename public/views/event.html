@@ -1,10 +1,10 @@
 <section class="events">
   <h4>Upcoming Events</h4>
   <div class="event" ng-repeat="event in events">
-    {{ event.name }}<br>
-    {{ event.start_date | date: short }} - {{ event.end_date | date: short }}<br>
-    Course: {{ event.course.name }}<br>
-    Yardage: {{ event.course.yardage }}<br>
-    Par: {{ event.course.par }}<br>
+    <h2>{{ event.name }}</h2><br>
+    <em>{{ event.start_date | date: short }} - {{ event.end_date | date: short }}</em><br>
+    <strong>Course:</strong> {{ event.course.name }}<br>
+    <strong>Yardage:</strong> {{ event.course.yardage }}<br>
+    <strong>Par:</strong> {{ event.course.par }}<br>
   </div>
 </section>
