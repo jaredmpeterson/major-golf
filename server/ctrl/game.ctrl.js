@@ -15,6 +15,7 @@ module.exports = {
     console.log('API read Games');
     Game.find(req.query)
 			.populate('creator', "username")
+			.populate('event', "name")
       .populate('players', "username")
 			.exec(function (err, game) {
 				if (err) res.status(500).send(err);
@@ -48,6 +49,7 @@ module.exports = {
 			_id: req.params.id
 		})
     .populate('creator', "username")
+		.populate('event', "name")
     .populate('players', "username")
     .exec(function (e, game) {
 			if (e) res.status(500).send(e);

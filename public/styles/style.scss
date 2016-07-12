@@ -197,34 +197,31 @@ ui-view {
     // align-content: space-between;
     align-items: center;
     overflow: hidden;
-
     .addgame {
-      flex: 1;
-      width: 100%;
-      text-align: center;
-
-      a.button {
-          display: inline-block;
-          // float: right;
-          font: $OS;
-          text-decoration: none;
-          color: $dark;
-          background-color: transparent;
-          border: 1px solid $dark;
-          border-radius: 100px;
-          padding: ms(-1) ms(0);
-          margin: 10px;
-          background-size: 200% 100%;
-          background-image: linear-gradient(to right, transparent 50%, $dark 50%);
-          transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
-      }
-      a.button:hover {
-          color: $icons;
-          background-color: $dark;
-          background-position: -100% 100%;
-      }
+        flex: 1;
+        width: 100%;
+        text-align: center;
+        a.button {
+            display: inline-block;
+            // float: right;
+            font: $OS;
+            text-decoration: none;
+            color: $dark;
+            background-color: transparent;
+            border: 1px solid $dark;
+            border-radius: 100px;
+            padding: ms(-1) ms(0);
+            margin: 10px;
+            background-size: 200% 100%;
+            background-image: linear-gradient(to right, transparent 50%, $dark 50%);
+            transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+        }
+        a.button:hover {
+            color: $icons;
+            background-color: $dark;
+            background-position: -100% 100%;
+        }
     }
-
     #idcard {
         flex: 0 0 content;
         // margin: ms(0);
@@ -242,55 +239,52 @@ ui-view {
         box-shadow: 2px 2px $text2;
     }
     .sidenav {
-      // border: 1px solid $MR;
-      flex: 1 1 content;
-      width: 100%;
-      box-sizing: border-box;
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: flex-start;
-      justify-content: center;
-      align-content: center;
-
-      a.button {
-          display: flex;
-          width: 100%;
-          flex: 1 100%;
-          font: $OS;
-          text-decoration: none;
-          color: $text;
-          background-color: transparent;
-          border-top: 1px solid $divider;
-          // border-radius: 100px;
-          padding: ms(-1) ms(0);
-          // margin: 5px;
-          background-size: 200% 100%;
-          background-image: linear-gradient(to right, transparent 50%, $GRAY 50%);
-          transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
-      }
-      a.button:hover {
-          color: $icons;
-          background-color: $GRAY;
-          background-position: -100% 100%;
-      }
-
+        // border: 1px solid $MR;
+        flex: 1 1 content;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        align-content: center;
+        a.button {
+            display: flex;
+            width: 100%;
+            flex: 1 100%;
+            font: $OS;
+            text-decoration: none;
+            color: $text;
+            background-color: transparent;
+            border-top: 1px solid $divider;
+            // border-radius: 100px;
+            padding: ms(-1) ms(0);
+            // margin: 5px;
+            background-size: 200% 100%;
+            background-image: linear-gradient(to right, transparent 50%, $GRAY 50%);
+            transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+        }
+        a.button:hover {
+            color: $icons;
+            background-color: $GRAY;
+            background-position: -100% 100%;
+        }
         ul {
-          align-self: flex-end;
-          box-sizing: border-box;
-          background-color: $divider;
-          flex: 1;
-          align-self: stretch;
-          display: flex;
-          flex-flow: row wrap;
-          justify-content: space-around;
-          align-content: flex-start;
-          align-items: flex-start;
-          text-align: right;
+            align-self: flex-end;
+            box-sizing: border-box;
+            background-color: $divider;
+            flex: 1;
+            align-self: stretch;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-content: flex-start;
+            align-items: flex-start;
+            text-align: right;
             li {
                 flex: 1;
                 list-style: none;
                 box-sizing: border-box;
-
                 a.button {
                     display: flex;
                     flex: 1;
@@ -324,34 +318,31 @@ ui-view {
 events {
     padding: ms(0);
     flex: 1;
-
     .events {
-      h4 {
-        color: $text;
-        text-align: center;
-      }
-      .event {
-        h2 {
-          display: inline-flex;
-          color: $main;
-          font-family: $OS;
-          font-size: ms(1);
-          margin-bottom: 0px;
-          // padding: 0;
-          line-height: ms(0);
+        h4 {
+            color: $text;
+            text-align: center;
         }
-        em {
-          color: $text2;
-          margin-bottom: ms(0);
-          padding-bottom: ms(0);
+        .event {
+            h2 {
+                display: inline-flex;
+                color: $main;
+                font-family: $OS;
+                font-size: ms(1);
+                margin-bottom: 0;
+                // padding: 0;
+                line-height: ms(0);
+            }
+            em {
+                color: $text2;
+                margin-bottom: ms(0);
+                padding-bottom: ms(0);
+            }
         }
-      }
-
     }
 }
-
 game-list {
-    padding: ms(0);
+    // padding: ms(0);
     flex: 1 100%;
     background-color: $icons;
     border-right: 2px solid $divider;
@@ -361,18 +352,19 @@ game-list {
     align-content: flex-start;
 }
 .gamelist {
+    background-color: $divider;
     flex: 1 100%;
     display: flex;
     flex-flow: row wrap;
     padding: ms(0);
     margin: auto;
     border-bottom: 2px solid $divider;
-
     #title {
-      flex: 1 100%;
+        flex: 1 100%;
     }
     .game {
-        flex: 1 1 auto;
+        flex: 1 40%;
+        max-width: 40%;
         display: flex;
         align-items: space-between;
         justify-content: space-between;
@@ -383,34 +375,64 @@ game-list {
         background-color: $light;
         border: 2px solid $dark;
 
-        a.button {
+        .gameinfo {
+          flex: 1;
+        }
+        .donkey {
+          flex: 1;
+          ul li {
+            list-style: none;
             display: inline-flex;
-            align-self: flex-end;
-            float: right;
-            font: $OS;
-            text-decoration: none;
-            color: $MR;
-            background-color: transparent;
-            border: 1px solid $MR;
-            border-radius: 100px;
-            padding: ms(-1) ms(0);
-            margin: 5px;
-            background-size: 200% 100%;
-            background-image: linear-gradient(to right, transparent 50%, $MR 50%);
-            transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
-        }
-        a.button:hover {
-            color: $icons;
-            background-color: $MR;
-            background-position: -100% 100%;
+        }}
+        .adminbuttons {
+          flex: 0;
+          a.removegame {
+              display: inline-flex;
+              align-self: flex-end;
+              float: right;
+              font: $OS;
+              text-decoration: none;
+              color: $MR;
+              background-color: transparent;
+              border: 1px solid $MR;
+              border-radius: 100px;
+              padding: ms(-1) ms(0);
+              margin: 5px;
+              background-size: 200% 100%;
+              background-image: linear-gradient(to right, transparent 50%, $MR 50%);
+              transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+          }
+          a.removegame:hover {
+              color: $icons;
+              background-color: $MR;
+              background-position: -100% 100%;
+          }
+          a.editgame {
+                        display: inline-flex;
+                        align-self: flex-end;
+                        float: right;
+                        font: $OS;
+                        text-decoration: none;
+                        color: $dark;
+                        background-color: transparent;
+                        border: 1px solid $dark;
+                        border-radius: 100px;
+                        padding: ms(-1) ms(0);
+                        margin: 5px;
+                        background-size: 200% 100%;
+                        background-image: -webkit-linear-gradient(left, transparent 50%, $dark 50%);
+                        background-image: -o-linear-gradient(left, transparent 50%, $dark 50%);
+                        background-image: linear-gradient(to right, transparent 50%, $dark 50%);
+                        transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+                    }
+          a.editgame:hover {
+              color: $icons;
+              background-color: $dark;
+              background-position: -100% 100%;
+          }
         }
 
-        // .donkey ul li {
-        //   list-style: none;
-        //   display: inline-flex;
-        // }
     }
-
 }
 .newgame {
     align-self: flex-end;

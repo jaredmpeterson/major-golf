@@ -3,8 +3,8 @@
     <div class="game" ng-repeat="game in games | filter: user.username">
       <div class="gameinfo">
         <strong>{{ game.name }}</strong><br/>
-        Host:
-        <em>{{ game.creator.username }}</em> <br>
+        {{ game.event.name }}<br/>
+        Host: <em>{{ game.creator.username }}</em> <br>
         Created:
         {{ game.created | date: short }}<br>
         </div>
@@ -13,8 +13,13 @@
               <li>{{ player.username }}</li>
           </ul>
         </div>
-        <a class="button" ng-if="user.id===game.creator._id" ng-click="deleteGame(game._id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
-        <!-- <button class="" ng-if="user.id===game.creator._id" type="button" ng-click="deleteGame(game._id)">Delete Game</button> -->
+        <div class="adminbuttons" ng-if="user.id===game.creator._id">
+          <a class="removegame" ng-click="deleteGame(game._id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          <a class="editgame" ng-click="editGame(game._id)"><i class="fa fa-plus" aria-hidden="true"></i></a>
+          <!-- ^ use to add/edit game -->
+          <!-- <button class="" ng-if="user.id===game.creator._id" type="button" ng-click="deleteGame(game._id)">Delete Game</button> -->
+        </div>
+
     </div>
 </section>
 

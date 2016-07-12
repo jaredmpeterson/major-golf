@@ -261,7 +261,7 @@ events {
     color: #4CAF50;
     font-family: "Open Sans", sans-serif;
     font-size: 1.61803em;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     line-height: 1em; }
   events .events .event em {
     color: #727272;
@@ -269,7 +269,6 @@ events {
     padding-bottom: 1em; }
 
 game-list {
-  padding: 1em;
   flex: 1 100%;
   background-color: #FFFFFF;
   border-right: 2px solid #B6B6B6;
@@ -279,6 +278,7 @@ game-list {
   align-content: flex-start; }
 
 .gamelist {
+  background-color: #B6B6B6;
   flex: 1 100%;
   display: flex;
   flex-flow: row wrap;
@@ -288,7 +288,8 @@ game-list {
   .gamelist #title {
     flex: 1 100%; }
   .gamelist .game {
-    flex: 1 1 auto;
+    flex: 1 40%;
+    max-width: 40%;
     display: flex;
     align-items: space-between;
     justify-content: space-between;
@@ -298,25 +299,55 @@ game-list {
     border-radius: 1em;
     background-color: #C8E6C9;
     border: 2px solid #388E3C; }
-    .gamelist .game a.button {
-      display: inline-flex;
-      align-self: flex-end;
-      float: right;
-      font: "Open Sans", sans-serif;
-      text-decoration: none;
-      color: #EC222E;
-      background-color: transparent;
-      border: 1px solid #EC222E;
-      border-radius: 100px;
-      padding: 0.61803em 1em;
-      margin: 5px;
-      background-size: 200% 100%;
-      background-image: linear-gradient(to right, transparent 50%, #EC222E 50%);
-      transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
-    .gamelist .game a.button:hover {
-      color: #FFFFFF;
-      background-color: #EC222E;
-      background-position: -100% 100%; }
+    .gamelist .game .gameinfo {
+      flex: 1; }
+    .gamelist .game .donkey {
+      flex: 1; }
+      .gamelist .game .donkey ul li {
+        list-style: none;
+        display: inline-flex; }
+    .gamelist .game .adminbuttons {
+      flex: 0; }
+      .gamelist .game .adminbuttons a.removegame {
+        display: inline-flex;
+        align-self: flex-end;
+        float: right;
+        font: "Open Sans", sans-serif;
+        text-decoration: none;
+        color: #EC222E;
+        background-color: transparent;
+        border: 1px solid #EC222E;
+        border-radius: 100px;
+        padding: 0.61803em 1em;
+        margin: 5px;
+        background-size: 200% 100%;
+        background-image: linear-gradient(to right, transparent 50%, #EC222E 50%);
+        transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+      .gamelist .game .adminbuttons a.removegame:hover {
+        color: #FFFFFF;
+        background-color: #EC222E;
+        background-position: -100% 100%; }
+      .gamelist .game .adminbuttons a.editgame {
+        display: inline-flex;
+        align-self: flex-end;
+        float: right;
+        font: "Open Sans", sans-serif;
+        text-decoration: none;
+        color: #388E3C;
+        background-color: transparent;
+        border: 1px solid #388E3C;
+        border-radius: 100px;
+        padding: 0.61803em 1em;
+        margin: 5px;
+        background-size: 200% 100%;
+        background-image: -webkit-linear-gradient(left, transparent 50%, #388E3C 50%);
+        background-image: -o-linear-gradient(left, transparent 50%, #388E3C 50%);
+        background-image: linear-gradient(to right, transparent 50%, #388E3C 50%);
+        transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+      .gamelist .game .adminbuttons a.editgame:hover {
+        color: #FFFFFF;
+        background-color: #388E3C;
+        background-position: -100% 100%; }
 
 .newgame {
   align-self: flex-end;

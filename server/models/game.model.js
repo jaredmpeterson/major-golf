@@ -7,7 +7,8 @@ var User = require('./user.model.js');
 
 // Game Schema
 var gameSchema = new Schema({
-  creator : {type: Schema.Types.ObjectId, ref:'User'},
+  creator: {type: Schema.Types.ObjectId, ref:'User'},
+  event: {type: Schema.Types.ObjectId, ref:'Event'},
   created: { type: Date, default: new Date() },
   name: String,
   players: [{ type: Schema.Types.ObjectId, ref: 'User' }]
