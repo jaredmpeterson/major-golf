@@ -1,9 +1,6 @@
-<div class="heroimage">
-    <h2 class="title">{{ title }}</h2>
-</div>
 <section class="golfers">
-    <div class="golfer" ng-repeat="golfer in golfers | orderBy: 'last_name'">
-        <div class="rank">
+    <div class="golfer" ng-repeat="golfer in golfers">
+        <!-- <div class="rank">
             {{ golfer.height }}
         </div>
         <p>
@@ -11,7 +8,7 @@
             {{ golfer.last_name }}<br>
             <em id="country">{{ golfer.country}}</em>
             {{ golfer.proInfo }}
-        </p>
-
+        </p> -->
+        {{ golfer }}
     </div>
 </section>

@@ -20,8 +20,7 @@ angular.module('majorGolf', ['ui.router'])
 						return golferService.getGolfers();
 					}
 				}
-			})
-			.state('players', {
+			}).state('players', {
 				url: '/players',
 				templateUrl: 'views/players.html',
 				controller: 'userCtrl',
@@ -51,7 +50,7 @@ angular.module('majorGolf', ['ui.router'])
 			controller: 'mainCtrl'
 		}
 	})
-	.directive('gameList', function() {
+	.directive('gameList', function () {
 		return {
 			restrict: 'E',
 			// scope: {},

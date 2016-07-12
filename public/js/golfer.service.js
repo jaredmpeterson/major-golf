@@ -1,11 +1,21 @@
 angular.module('majorGolf')
-	.service('golferService', function ($http) {
+	.service('golferService', function ($http, $stateParams) {
 
 		this.getGolfers = function () {
 			return $http({
 				method: 'GET',
-				url: '/api/golfers'
+				url: '/api/pro'
 			}).then(function (data) {
+				return data.data;
+			})
+		}
+
+		this.getGolfer = function () {
+			return $http({
+				method: 'GET',
+				url: '/api/pro/'+$stateParams.id
+			}).then(function (data) {
+				console.log(data);
 				return data.data;
 			})
 		}
@@ -13,7 +23,7 @@ angular.module('majorGolf')
 		this.newGolfer = function (golfer) {
 				$http({
 					method: 'POST',
-					url: '/api/golfers',
+					url: '/api/pro',
 					data: golfer
 				})
 			},
@@ -21,7 +31,7 @@ angular.module('majorGolf')
 			this.updateGolfer = function (golfer) {
 				return $http({
 					method: 'PUT',
-					url: '/api/golfers/' + golfer._id,
+					url: '/api/pro/' + golfer._id,
 					data: golfer
 				})
 			}

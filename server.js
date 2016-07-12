@@ -26,11 +26,13 @@ app.use(passport.session());
 var userCtrl = require('./server/ctrl/user.ctrl.js');
 var golferCtrl = require('./server/ctrl/golfer.ctrl.js');
 var gameCtrl = require('./server/ctrl/game.ctrl.js');
+var proCtrl = require('./server/ctrl/pro.ctrl.js');
 
 //Models
 var User = require('./server/models/user.model.js');
 var Golfer = require('./server/models/golfer.model.js');
 var Game = require('./server/models/game.model.js');
+var Pro = require('./server/models/pro.model.js');
 
 //Variables
 var port = 3000;
@@ -105,6 +107,13 @@ app.get('/api/golfers/:id', golferCtrl.show);
 app.put('/api/golfers/:id', golferCtrl.update);
 app.post('/api/golfers', golferCtrl.create);
 app.delete('/api/golfers/:id', golferCtrl.delete);
+
+// Pro Endpoints
+app.get('/api/pro', proCtrl.read);
+app.get('/api/pro/:id', proCtrl.show);
+app.put('/api/pro/:id', proCtrl.update);
+app.post('/api/pro', proCtrl.create);
+app.delete('/api/pro/:id', proCtrl.delete);
 
 // User Endpoints
 app.get('/api/users', userCtrl.read);
