@@ -1,22 +1,28 @@
 <aside class="id">
-  <div ng-if="user" id="idcard">
-      <em id="country">{{ profile._json.location }}</em><br>
-      {{ profile._json.description }}
-  </div>
   <events></events>
-  <div class="games">
-    Current Games
-      <ul>
-        <li>Masters</li>
-        <li>U.S. Open</li>
-        <li>The Open Championship</li>
-        <li>PGA Championship</li>
-      </ul>
+  <div ng-if="user" id="idcard">
+      <p>
+        My Location:<br>
+    <em id="country">{{ profile._json.location }}</em></p><br>
   </div>
-  <div ng-if="user.admin" class="admin">
-      <button type="button" name="button">Admin</button>
+  <div ng-if="user" class="sidenav">
+    <ul>
+      <li ng-if="user.username"><a class="button" href="/logout">logout</a></li>
+      <li ng-if="!user.admin"><a class="button" href="/">admin</a></li>
+    </ul>
+      <!-- <button type="button" name="button">Admin</button> -->
   </div>
 </aside>
 <section class="home">
   <game-list></game-list>
 </section>
+
+<!-- <div class="games">
+  Current Games
+    <ul>
+      <li>Masters</li>
+      <li>U.S. Open</li>
+      <li>The Open Championship</li>
+      <li>PGA Championship</li>
+    </ul>
+</div> -->

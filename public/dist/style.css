@@ -147,16 +147,15 @@ ui-view {
   flex: 1;
   order: 2;
   display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-end;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
   align-content: space-around;
-  align-items: flex-start; }
+  align-items: center;
+  overflow: hidden; }
   .id #idcard {
     flex: 0 0 content;
     padding: 10px;
-    box-sizing: border-box;
-    border: 0.5px solid #B6B6B6;
-    box-shadow: 2px 2px #727272; }
+    box-sizing: border-box; }
   .id .games {
     margin: 1em;
     flex: 0 0 content;
@@ -164,10 +163,41 @@ ui-view {
     box-sizing: border-box;
     border: 0.5px solid #B6B6B6;
     box-shadow: 2px 2px #727272; }
+  .id .sidenav {
+    flex: 0 0 content;
+    width: 100%;
+    box-sizing: border-box; }
+    .id .sidenav ul {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-content: flex-start;
+      align-items: flex-start; }
+      .id .sidenav ul li {
+        flex: 1;
+        list-style: none;
+        width: 100%; }
+        .id .sidenav ul li a.button {
+          display: flex;
+          font: "Open Sans", sans-serif;
+          text-decoration: none;
+          color: #EC222E;
+          background-color: transparent;
+          border: 1px solid #EC222E;
+          border-radius: 100px;
+          padding: 0.61803em 1em;
+          margin: 5px;
+          background-size: 200% 100%;
+          background-image: linear-gradient(to right, transparent 50%, #EC222E 50%);
+          transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+        .id .sidenav ul li a.button:hover {
+          color: #FFFFFF;
+          background-color: #EC222E;
+          background-position: -100% 100%; }
 
 .home {
   flex: 3;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-flow: row wrap; }
 
@@ -190,11 +220,19 @@ game-list {
   padding: 1em;
   margin: auto; }
   .gamelist .game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
     margin: 1em;
     padding: 1em;
-    background-color: #C8E6C9; }
+    border-radius: 1em;
+    background-color: #C8E6C9;
+    position: relative; }
     .gamelist .game a.button {
-      display: inline-block;
+      display: inline-flex;
+      align-self: flex-end;
+      float: right;
       font: "Open Sans", sans-serif;
       text-decoration: none;
       color: #EC222E;

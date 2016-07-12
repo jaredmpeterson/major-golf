@@ -148,7 +148,6 @@ ui-view {
     padding-top: 50px;
     height: 100vh;
 }
-
 .login {
     width: 100%;
     background-image: url("http://bunkerhillgolf.com/wp-content/uploads/2013/12/Bunker-Hill-Green.jpg");
@@ -179,35 +178,33 @@ ui-view {
         font-weight: 300;
     }
     .search {
-      font: $OS;
-      text-decoration:none;
-
-      color: $icons;
-      background-color: transparent;
-      border:2px solid $icons;
-      border-radius:100px;
-
-      padding: ms(-1) ms(0);
-      margin:5px;
+        font: $OS;
+        text-decoration: none;
+        color: $icons;
+        background-color: transparent;
+        border: 2px solid $icons;
+        border-radius: 100px;
+        padding: ms(-1) ms(0);
+        margin: 5px;
     }
 }
-
 .id {
     flex: 1;
     order: 2;
     // padding: 10px;
     display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-end;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
     align-content: space-around;
-    align-items: flex-start;
+    align-items: center;
+    overflow: hidden;
     #idcard {
         flex: 0 0 content;
         // margin: ms(0);
         padding: 10px;
         box-sizing: border-box;
-        border: 0.5px solid $divider;
-        box-shadow: 2px 2px $text2;
+        // border: 0.5px solid $divider;
+        // box-shadow: 2px 2px $text2;
     }
     .games {
         margin: ms(0);
@@ -217,19 +214,58 @@ ui-view {
         border: 0.5px solid $divider;
         box-shadow: 2px 2px $text2;
     }
+    .sidenav {
+      // border: 1px solid $MR;
+      flex: 0 0 content;
+      width: 100%;
+      box-sizing: border-box;
+        ul {
+          // width: 100%;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          align-content: flex-start;
+          align-items: flex-start;
+            li {
+                flex: 1;
+                list-style: none;
+                width: 100%;
+
+                a.button {
+                    display: flex;
+                    // float: right;
+                    // width: 100%;
+                    font: $OS;
+                    text-decoration: none;
+                    color: $MR;
+                    background-color: transparent;
+                    border: 1px solid $MR;
+                    border-radius: 100px;
+                    padding: ms(-1) ms(0);
+                    margin: 5px;
+                    background-size: 200% 100%;
+                    background-image: linear-gradient(to right, transparent 50%, $MR 50%);
+                    transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+                }
+                a.button:hover {
+                    color: $icons;
+                    background-color: $MR;
+                    background-position: -100% 100%;
+                }
+            }
+        }
+    }
 }
 .home {
     flex: 3;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
     flex-flow: row wrap;
 }
-
 events {
-  padding: ms(0);
-  flex: 1;
+    padding: ms(0);
+    flex: 1;
 }
-
 game-list {
     padding: ms(0);
     flex: 1 100%;
@@ -244,38 +280,38 @@ game-list {
     flex: 1 50%;
     padding: ms(0);
     margin: auto;
-
-
     .game {
-      margin: ms(0);
-      padding: ms(0);
-      background-color: $light;
-
-      a.button{
-        display:inline-block;
-        // float: right;
-
-      	font: $OS;
-      	text-decoration:none;
-
-      	color: $MR;
-      	background-color: transparent;
-      	border:1px solid $MR;
-      	border-radius:100px;
-
-      	padding: ms(-1) ms(0);
-      	margin:5px;
-
-      	background-size: 200% 100%;
-      	background-image: linear-gradient(to right, transparent 50%, $MR 50%);
-      	transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
-      }
-
-      a.button:hover{
-      	color: $icons;
-      	background-color:$MR;
-      	background-position: -100% 100%;
-      }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
+        margin: ms(0);
+        padding: ms(0);
+        border-radius: ms(0);
+        background-color: $light;
+        position: relative;
+        a.button {
+          // position: absolute;
+            display: inline-flex;
+            align-self: flex-end;
+            float: right;
+            font: $OS;
+            text-decoration: none;
+            color: $MR;
+            background-color: transparent;
+            border: 1px solid $MR;
+            border-radius: 100px;
+            padding: ms(-1) ms(0);
+            margin: 5px;
+            background-size: 200% 100%;
+            background-image: linear-gradient(to right, transparent 50%, $MR 50%);
+            transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+        }
+        a.button:hover {
+            color: $icons;
+            background-color: $MR;
+            background-position: -100% 100%;
+        }
     }
 }
 .newgame {
@@ -284,34 +320,27 @@ game-list {
     padding: ms(0);
     background: $dark;
     margin-top: 50px;
-
-    a.button{
-      display:inline-block;
-      // float: right;
-
-      font: $OS;
-      text-decoration:none;
-
-      color: $MR;
-      background-color: transparent;
-      border:1px solid $MR;
-      border-radius:100px;
-
-      padding: ms(-1) ms(0);
-      margin:5px;
-
-      background-size: 200% 100%;
-      background-image: linear-gradient(to right, transparent 50%, $MR 50%);
-      transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+    a.button {
+        display: inline-block;
+        // float: right;
+        font: $OS;
+        text-decoration: none;
+        color: $MR;
+        background-color: transparent;
+        border: 1px solid $MR;
+        border-radius: 100px;
+        padding: ms(-1) ms(0);
+        margin: 5px;
+        background-size: 200% 100%;
+        background-image: linear-gradient(to right, transparent 50%, $MR 50%);
+        transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
     }
-
-    a.button:hover{
-      color: $icons;
-      background-color:$MR;
-      background-position: -100% 100%;
+    a.button:hover {
+        color: $icons;
+        background-color: $MR;
+        background-position: -100% 100%;
     }
 }
-
 .golfers {
     order: 2;
     padding: ms(2);
@@ -356,9 +385,6 @@ game-list {
 #mgsplash {
     margin-top: 50px;
 }
-
-
-
 @media all and (max-width: 800px) {
     header {
         justify-content: space-around;
