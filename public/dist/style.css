@@ -151,6 +151,27 @@ ui-view {
   justify-content: flex-start;
   align-items: center;
   overflow: hidden; }
+  .id .addgame {
+    flex: 1;
+    width: 100%;
+    text-align: center; }
+    .id .addgame a.button {
+      display: inline-block;
+      font: "Open Sans", sans-serif;
+      text-decoration: none;
+      color: #388E3C;
+      background-color: transparent;
+      border: 1px solid #388E3C;
+      border-radius: 100px;
+      padding: 0.61803em 1em;
+      margin: 10px;
+      background-size: 200% 100%;
+      background-image: linear-gradient(to right, transparent 50%, #388E3C 50%);
+      transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
+    .id .addgame a.button:hover {
+      color: #FFFFFF;
+      background-color: #388E3C;
+      background-position: -100% 100%; }
   .id #idcard {
     flex: 0 0 content;
     padding: 10px;
@@ -254,25 +275,29 @@ game-list {
   border-right: 2px solid #B6B6B6;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-content: flex-start; }
 
 .gamelist {
-  flex: 1 50%;
+  flex: 1 100%;
+  display: flex;
+  flex-flow: row wrap;
   padding: 1em;
   margin: auto;
   border-bottom: 2px solid #B6B6B6; }
+  .gamelist #title {
+    flex: 1 100%; }
   .gamelist .game {
+    flex: 1 1 auto;
     display: flex;
-    align-items: center;
+    align-items: space-between;
     justify-content: space-between;
-    align-content: center;
+    align-content: space-between;
     margin: 1em;
     padding: 1em;
     border-radius: 1em;
     background-color: #C8E6C9;
-    border: 2px solid #388E3C;
-    position: relative; }
+    border: 2px solid #388E3C; }
     .gamelist .game a.button {
       display: inline-flex;
       align-self: flex-end;
@@ -297,7 +322,6 @@ game-list {
   align-self: flex-end;
   flex: 1 50%;
   padding: 1em;
-  background: #388E3C;
   margin-top: 50px; }
   .newgame a.button {
     display: inline-block;

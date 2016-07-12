@@ -1,23 +1,29 @@
 <aside class="id">
   <events></events>
-  <div ng-if="user" id="idcard">
-      <p>
-        My Location:<br>
-    <em id="country">{{ profile._json.location }}</em></p><br>
+  <div class="addgame">
+      <h4>Create A Game</h4>
+      <input type="text" ng-model="newGame.name" placeholder="Game Name"><br>
+      <!-- <input type="text" ng-model="newGame.players" placeholder="Players"><br> -->
+      <input type="hidden" required ng-model="newGame.creator" ng-init="newGame.creator=user.id">
+      <a class="button" ng-click="createGame(newGame)"><i class="fa fa-plus" aria-hidden="true"></i></a>
   </div>
+  <!-- <div ng-if="user" id="idcard">
+    <p>My Location:<br>
+    <em id="country">{{ profile._json.location }}</em></p><br>
+  </div> -->
   <div ng-if="user" class="sidenav">
-    <!-- <ul>
-      <li ng-if="user.username"><a class="button" href="/logout">logout</a></li>
-      <li ng-if="!user.admin"><a class="button" href="/">admin</a></li>
-    </ul> -->
       <a class="button" ng-if="user.username" href="/logout">logout</a>
-      <a class="button" ng-if="!user.admin" href="/">admin</a>
+      <a class="button" ng-if="user.admin" href="/">admin</a>
   </div>
 </aside>
 <section class="home">
   <game-list></game-list>
 </section>
 
+<!-- <ul>
+  <li ng-if="user.username"><a class="button" href="/logout">logout</a></li>
+  <li ng-if="!user.admin"><a class="button" href="/">admin</a></li>
+</ul> -->
 <!-- <div class="games">
   Current Games
     <ul>

@@ -197,6 +197,34 @@ ui-view {
     // align-content: space-between;
     align-items: center;
     overflow: hidden;
+
+    .addgame {
+      flex: 1;
+      width: 100%;
+      text-align: center;
+
+      a.button {
+          display: inline-block;
+          // float: right;
+          font: $OS;
+          text-decoration: none;
+          color: $dark;
+          background-color: transparent;
+          border: 1px solid $dark;
+          border-radius: 100px;
+          padding: ms(-1) ms(0);
+          margin: 10px;
+          background-size: 200% 100%;
+          background-image: linear-gradient(to right, transparent 50%, $dark 50%);
+          transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
+      }
+      a.button:hover {
+          color: $icons;
+          background-color: $dark;
+          background-position: -100% 100%;
+      }
+    }
+
     #idcard {
         flex: 0 0 content;
         // margin: ms(0);
@@ -329,28 +357,33 @@ game-list {
     border-right: 2px solid $divider;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-content: flex-start;
 }
 .gamelist {
-    flex: 1 50%;
+    flex: 1 100%;
+    display: flex;
+    flex-flow: row wrap;
     padding: ms(0);
     margin: auto;
     border-bottom: 2px solid $divider;
 
+    #title {
+      flex: 1 100%;
+    }
     .game {
+        flex: 1 1 auto;
         display: flex;
-        align-items: center;
+        align-items: space-between;
         justify-content: space-between;
-        align-content: center;
+        align-content: space-between;
         margin: ms(0);
         padding: ms(0);
         border-radius: ms(0);
         background-color: $light;
         border: 2px solid $dark;
-        position: relative;
+
         a.button {
-          // position: absolute;
             display: inline-flex;
             align-self: flex-end;
             float: right;
@@ -371,13 +404,19 @@ game-list {
             background-color: $MR;
             background-position: -100% 100%;
         }
+
+        // .donkey ul li {
+        //   list-style: none;
+        //   display: inline-flex;
+        // }
     }
+
 }
 .newgame {
     align-self: flex-end;
     flex: 1 50%;
     padding: ms(0);
-    background: $dark;
+    // background: $dark;
     margin-top: 50px;
     a.button {
         display: inline-block;
