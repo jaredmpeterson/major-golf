@@ -2,11 +2,10 @@
     <h4 id="title">My Games</h4>
     <div class="game" ng-repeat="game in games | filter: user.username">
       <div class="gameinfo">
-        <strong>{{ game.name }}</strong><br/>
-        {{ game.event.name }}<br/>
-        Host: <em>{{ game.creator.username }}</em> <br>
-        Created:
-        {{ game.created | date: short }}<br>
+        <span class="name">{{ game.name }}</span><br/>
+        <span class="event">{{ game.event.name }}</span> <br/>
+        <span class="host">Host: <em>{{ game.creator.username }}</em></span><br>
+        <span class="created"> Created: {{ game.created | date: short }}</span><br>
         </div>
         <div class="donkey">
           <ul ng-repeat="player in game.players">
@@ -22,11 +21,11 @@
 
     </div>
 </section>
-
+<!--
 <section class="newgame">
     <h4>Create A Game</h4>
-    <!-- <input type="text" ng-model="newGame.name" placeholder="Game Name"><br> -->
-    <!-- <input type="text" ng-model="newGame.players" placeholder="Players"><br> -->
+    <input type="text" ng-model="newGame.name" placeholder="Game Name"><br>
+    <input type="text" ng-model="newGame.players" placeholder="Players"><br>
     <input type="hidden" required ng-model="newGame.creator" ng-init="newGame.creator=user.id">
     <a class="button" ng-click="createGame(newGame)"><i class="fa fa-plus" aria-hidden="true"></i></a>
-</section>
+</section> -->

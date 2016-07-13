@@ -200,14 +200,14 @@ ui-view {
       text-decoration: none;
       color: #212121;
       background-color: transparent;
-      border-top: 1px solid #B6B6B6;
+      border-top: 1px solid #999999;
       padding: 0.61803em 1em;
       background-size: 200% 100%;
-      background-image: linear-gradient(to right, transparent 50%, #999999 50%);
+      background-image: linear-gradient(to right, transparent 50%, #B6B6B6 50%);
       transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease; }
     .id .sidenav a.button:hover {
       color: #FFFFFF;
-      background-color: #999999;
+      background-color: #B6B6B6;
       background-position: -100% 100%; }
     .id .sidenav ul {
       align-self: flex-end;
@@ -283,17 +283,22 @@ game-list {
   display: flex;
   flex-flow: row wrap;
   padding: 1em;
-  margin: auto;
-  border-bottom: 2px solid #B6B6B6; }
+  border-bottom: 2px solid #B6B6B6;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: flex-start; }
   .gamelist #title {
-    flex: 1 100%; }
+    flex: 4 100%;
+    padding-right: 1.61803em;
+    text-align: right; }
   .gamelist .game {
-    flex: 1 40%;
-    max-width: 40%;
+    box-sizing: border-box;
+    flex: 1 45%;
+    max-width: 45%;
     display: flex;
-    align-items: space-between;
-    justify-content: space-between;
-    align-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-content: center;
     margin: 1em;
     padding: 1em;
     border-radius: 1em;
@@ -301,11 +306,27 @@ game-list {
     border: 2px solid #388E3C; }
     .gamelist .game .gameinfo {
       flex: 1; }
+      .gamelist .game .gameinfo .name {
+        font-weight: bold;
+        font-size: 1.61803em; }
+      .gamelist .game .gameinfo .host {
+        font-size: 1em;
+        color: #212121; }
+      .gamelist .game .gameinfo .created {
+        font-size: 0.61803em;
+        line-height: 0.61803em;
+        color: #727272; }
     .gamelist .game .donkey {
       flex: 1; }
-      .gamelist .game .donkey ul li {
+      .gamelist .game .donkey ul {
+        margin: 0;
         list-style: none;
-        display: inline-flex; }
+        line-height: 1em; }
+        .gamelist .game .donkey ul li {
+          display: inline-flex;
+          font-weight: lighter;
+          font-size: 1em;
+          line-height: 1em; }
     .gamelist .game .adminbuttons {
       flex: 0; }
       .gamelist .game .adminbuttons a.removegame {

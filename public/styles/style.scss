@@ -224,11 +224,8 @@ ui-view {
     }
     #idcard {
         flex: 0 0 content;
-        // margin: ms(0);
         padding: 10px;
         box-sizing: border-box;
-        // border: 0.5px solid $divider;
-        // box-shadow: 2px 2px $text2;
     }
     .games {
         margin: ms(0);
@@ -239,7 +236,6 @@ ui-view {
         box-shadow: 2px 2px $text2;
     }
     .sidenav {
-        // border: 1px solid $MR;
         flex: 1 1 content;
         width: 100%;
         box-sizing: border-box;
@@ -256,17 +252,15 @@ ui-view {
             text-decoration: none;
             color: $text;
             background-color: transparent;
-            border-top: 1px solid $divider;
-            // border-radius: 100px;
+            border-top: 1px solid $GRAY;
             padding: ms(-1) ms(0);
-            // margin: 5px;
             background-size: 200% 100%;
-            background-image: linear-gradient(to right, transparent 50%, $GRAY 50%);
+            background-image: linear-gradient(to right, transparent 50%, $divider 50%);
             transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s, color 0.5s ease 0s, background-color 0.5s ease;
         }
         a.button:hover {
             color: $icons;
-            background-color: $GRAY;
+            background-color: $divider;
             background-position: -100% 100%;
         }
         ul {
@@ -357,35 +351,68 @@ game-list {
     display: flex;
     flex-flow: row wrap;
     padding: ms(0);
-    margin: auto;
     border-bottom: 2px solid $divider;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: flex-start;
+
     #title {
-        flex: 1 100%;
+        flex: 4 100%;
+        padding-right: ms(1);
+        text-align: right;
     }
     .game {
-        flex: 1 40%;
-        max-width: 40%;
-        display: flex;
-        align-items: space-between;
-        justify-content: space-between;
-        align-content: space-between;
-        margin: ms(0);
-        padding: ms(0);
-        border-radius: ms(0);
-        background-color: $light;
-        border: 2px solid $dark;
+      box-sizing: border-box;
+      flex: 1 45%;
+      max-width: 45%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      align-content: center;
+      margin: ms(0);
+      padding: ms(0);
+      border-radius: ms(0);
+      background-color: $light;
+      border: 2px solid $dark;
 
         .gameinfo {
           flex: 1;
+          .name {
+            font-weight: bold;
+            font-size: ms(1);
+          }
+          .event {
+
+          }
+          .host {
+            font-size: ms(0);
+            color: $text;
+          }
+          .created {
+            font-size: ms(-1);
+            line-height: ms(-1);
+            color: $text2;
+          }
         }
         .donkey {
           flex: 1;
-          ul li {
+          ul {
+            margin: 0;
             list-style: none;
+            line-height: ms(0);
+
+            li {
             display: inline-flex;
-        }}
+            font-weight: lighter;
+            font-size: ms(0);
+            line-height: ms(0);
+            }
+          }
+        }
         .adminbuttons {
           flex: 0;
+          // display: none;
+
           a.removegame {
               display: inline-flex;
               align-self: flex-end;
@@ -431,8 +458,12 @@ game-list {
               background-position: -100% 100%;
           }
         }
-
     }
+    // .game:hover {
+    //   .adminbuttons {
+    //     display: ;
+    //   }
+    // }
 }
 .newgame {
     align-self: flex-end;
