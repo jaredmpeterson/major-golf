@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var timestamps = require('mongoose-timestamp');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
@@ -25,6 +26,8 @@ var userSchema = new Schema({
   	// 			virtuals: true
   	// 		}
   		});
+
+userSchema.plugin(timestamps);
 
 		// Basic info to identify the current authenticated user in the app
 		userSchema

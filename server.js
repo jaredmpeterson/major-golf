@@ -40,11 +40,11 @@ var Course = require('./server/models/course.model.js');
 
 //Variables
 var port = 3000;
-var mongoURI = 'mongodb://localhost/majorgolf';
+
 
 //Database
 mongoose.set('debug', true);
-mongoose.connect(mongoURI, function (err, res) {
+mongoose.connect(zebras.localmongoURI, function (err, res) {
 	if (err) console.log('Error connecting to database')
 	else console.log('Major Golf '+ port +' reporting for duty!')
 });
