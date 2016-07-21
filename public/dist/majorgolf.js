@@ -125,6 +125,7 @@ angular.module('majorGolf').controller('gameCtrl', function ($scope, gameService
 
   // console.log(games);
 
+
   // VARIABLES
   // ============================================================
   $scope.majorgames = function () {
@@ -213,12 +214,14 @@ angular.module('majorGolf').service('gameService', function ($http) {
 
   // OTHER FUNCTIONS
   // ============================================================
+
 });
 'use strict';
 
 angular.module('majorGolf').controller('eventCtrl', function ($scope, eventService, $q) {
 
   // console.log(events);
+
 
   // VARIABLES
   // ============================================================
@@ -308,6 +311,7 @@ angular.module('majorGolf').service('eventService', function ($http) {
 
   // OTHER FUNCTIONS
   // ============================================================
+
 });
 'use strict';
 

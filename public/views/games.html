@@ -8,6 +8,10 @@
         <span class="created"> Created: {{ game.created | date: short }}</span><br>
         </div>
         <div class="donkey">
+          <!-- <form class="" action="index.html" method="post">
+            <label for="">Players <input type="" ng-model="game.players" name="playersInput" ng-list required> </label>
+            <tt>players = {{ game.players}}</tt>
+          </form> -->
           <ul ng-repeat="player in game.players">
               <li>{{ player.username }}</li>
           </ul>

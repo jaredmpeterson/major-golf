@@ -5,6 +5,7 @@ var sass = require('gulp-sass');
 var order = require('gulp-order');
 var ngAnnotate = require('gulp-ng-annotate');
 var sourcemaps = require('gulp-sourcemaps');
+var nodemon = require('gulp-nodemon');
 
 gulp.task('es6', function() {
   gulp.src(['public/js/*.js'])
@@ -16,6 +17,14 @@ gulp.task('es6', function() {
   .pipe(gulp.dest('public/dist/'));
 });
 
+gulp.task('start', function () {
+  nodemon({
+    script: './server.js'
+  , ext: 'js html'
+  , env: { 'NODE_ENV': 'development' }
+  })
+})
+
 gulp.task('sass', function() {
   return gulp.src('public/styles/*.scss')
   .pipe(sass().on('error', sass.logError))
@@ -25,4 +34,4 @@ gulp.task('sass', function() {
 gulp.watch('public/styles/*.scss', ['sass']);
 gulp.watch('public/js/*.js', ['es6']);
 
-gulp.task('default', ['es6', 'sass']);
+gulp.task('default', ['es6', 'sass', 'start']);
