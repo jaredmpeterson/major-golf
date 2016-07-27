@@ -44,7 +44,7 @@ var port = 3000;
 
 //Database
 mongoose.set('debug', true);
-mongoose.connect(zebras.localmongoURI, function (err, res) {
+mongoose.connect(zebras.mongoURI, function (err, res) {
 	if (err) console.log('Error connecting to database')
 	else console.log('Major Golf '+ port +' reporting for duty!')
 });
