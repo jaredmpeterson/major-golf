@@ -3,7 +3,7 @@ var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var order = require('gulp-order');
-var ngAnnotate = require('gulp-ng-annotate');
+var annotate = require('gulp-ng-annotate');
 var sourcemaps = require('gulp-sourcemaps');
 var nodemon = require('gulp-nodemon');
 
