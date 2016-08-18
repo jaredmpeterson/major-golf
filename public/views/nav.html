@@ -4,7 +4,7 @@
   </div>
   <nav>
     <ul>
-      <li ng-if="!user.username"><a href="http://127.0.0.1:3000/auth/twitter">Sign In</a></li>
+      <li ng-if="!user.username"><a href="http://127.0.0.1:4000/auth/twitter">Sign In</a></li>
       <li><a ui-sref="home">{{ user.username }}</a></li>
     </ul>
     <img ng-if="user.username" class="avatar" ng-src="{{ user.profileImg }}" alt="{{ user.username }}" />

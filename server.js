@@ -39,11 +39,11 @@ var Event = require('./server/models/event.model.js');
 var Course = require('./server/models/course.model.js');
 
 //Variables
-var port = 3000;
+var port = 4000;
 
 
 //Database
-mongoose.set('debug', true);
+mongoose.set('debug', false);
 mongoose.connect(zebras.mongoURI, function (err, res) {
 	if (err) console.log('Error connecting to database')
 	else console.log('Major Golf '+ port +' reporting for duty!')
