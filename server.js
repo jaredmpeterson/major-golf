@@ -12,13 +12,14 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-
 //Passport
-app.use(session({
-	secret: zebras.secret,
-	resave: true,
-	saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: zebras.secret,
+    resave: true,
+    saveUninitialized: true
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -39,70 +40,81 @@ var Event = require('./server/models/event.model.js');
 var Course = require('./server/models/course.model.js');
 
 //Variables
-var port = 4000;
-
+var port = 3000;
 
 //Database
 mongoose.set('debug', false);
-mongoose.connect(zebras.mongoURI, function (err, res) {
-	if (err) console.log('Error connecting to database')
-	else console.log('Major Golf '+ port +' reporting for duty!')
-});
+mongoose.connect(
+  zebras.mongoURI,
+  function(err, res) {
+    if (err) console.log('Error connecting to database');
+    else console.log('Major Golf ' + port + ' reporting for duty!');
+  }
+);
 // mongoose.connection.once('open', function () {
 // 	console.log('Major Golf reporting for duty!');
 // });
 
-
 //Middleware
 
-passport.use(new TwitterStrategy({
-	consumerKey: zebras.consumerKey,
-	consumerSecret: zebras.consumerSecret,
-	callbackURL: "http://127.0.0.1:" + port + "/auth/twitter/callback"
-}, function (token, tokenSecret, profile, done) {
-		User.findOne({
-			profile: profile.id
-		}, function (err, user) {
-			if (err) return done(err);
-			if (!user) {
-				user = new User({
-					profile: profile.id,
-					username: profile.username,
-					twitter: profile
-				})
-				user.save(function (err) {
-					if (err) console.log(err)
-					return done(null, user);
-				})
-			} else {
-				return done(null, user);
-			}
-		})
-}));
-app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', passport.authenticate('twitter', {
-		successRedirect: '/#/home',
-		failureRedirect: '/#/'
-	})
-	// ,
-	// function (req, res, next) {
-	// 	res.redirect('/#/home');
-	// }
+passport.use(
+  new TwitterStrategy(
+    {
+      consumerKey: zebras.consumerKey,
+      consumerSecret: zebras.consumerSecret,
+      callbackURL: 'http://127.0.0.1:' + port + '/auth/twitter/callback'
+    },
+    function(token, tokenSecret, profile, done) {
+      User.findOne(
+        {
+          profile: profile.id
+        },
+        function(err, user) {
+          if (err) return done(err);
+          if (!user) {
+            user = new User({
+              profile: profile.id,
+              username: profile.username,
+              twitter: profile
+            });
+            user.save(function(err) {
+              if (err) console.log(err);
+              return done(null, user);
+            });
+          } else {
+            return done(null, user);
+          }
+        }
+      );
+    }
+  )
 );
-app.get('/logout', function(req, res){
+app.get('/auth/twitter', passport.authenticate('twitter'));
+app.get(
+  '/auth/twitter/callback',
+  passport.authenticate('twitter', {
+    successRedirect: '/#/home',
+    failureRedirect: '/#/'
+  })
+  // ,
+  // function (req, res, next) {
+  // 	res.redirect('/#/home');
+  // }
+);
+app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/#/');
 });
 
-passport.serializeUser(function (user, done) {
-	console.log('serialize');
-	done(null, user.id);
+passport.serializeUser(function(user, done) {
+  console.log('serialize');
+  done(null, user.id);
 });
-passport.deserializeUser(function (id, done) {
-	console.log('deserialize');
-	User.findById(id, function(err, user) {
-		done(null, user);
-	})
+passport.deserializeUser(function(id, done) {
+  console.log('deserialize');
+  User.findById(id, function(err, user) {
+    done(null, user);
+  });
 });
 
 // Golfer Endpoints
@@ -145,6 +157,6 @@ app.post('/api/course', courseCtrl.create);
 app.delete('/api/course/:id', courseCtrl.delete);
 
 //Listen
-app.listen(port, function () {
-	// console.log("Fore " + port);
+app.listen(port, function() {
+  // console.log("Fore " + port);
 });
